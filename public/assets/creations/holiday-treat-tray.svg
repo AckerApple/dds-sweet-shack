@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 675" role="img" aria-labelledby="title desc">
+  <title id="title">Holiday treat tray placeholder</title>
+  <desc id="desc">A colorful placeholder illustration for seasonal treat trays.</desc>
+  <rect width="900" height="675" fill="#fff7fc"/>
+  <circle cx="164" cy="118" r="145" fill="#04b9ff" opacity=".16"/>
+  <ellipse cx="450" cy="398" rx="298" ry="132" fill="#ffffff" stroke="#7f2cff" stroke-width="14"/>
+  <g>
+    <circle cx="320" cy="360" r="54" fill="#ff2fa7"/>
+    <circle cx="450" cy="338" r="62" fill="#ffd84d"/>
+    <circle cx="580" cy="366" r="54" fill="#04b9ff"/>
+    <rect x="368" y="414" width="164" height="66" rx="24" fill="#7f2cff"/>
+  </g>
+  <g fill="none" stroke="#ffffff" stroke-width="10" stroke-linecap="round">
+    <path d="M290 360h60M450 304v68M550 366h60M406 447h88"/>
+  </g>
+  <text x="450" y="596" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="44" font-weight="900" fill="#27172d">Holiday Treat Tray</text>
+</svg>

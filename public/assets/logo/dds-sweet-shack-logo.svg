@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" role="img" aria-labelledby="title desc">
+  <title id="title">DD's Sweet Shack placeholder logo</title>
+  <desc id="desc">A bright placeholder logo asset for DD's Sweet Shack.</desc>
+  <defs>
+    <linearGradient id="neon" x1="62" y1="54" x2="338" y2="346" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#ff2fa7"/>
+      <stop offset="0.48" stop-color="#7f2cff"/>
+      <stop offset="1" stop-color="#04b9ff"/>
+    </linearGradient>
+    <filter id="glow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="8" result="blur"/>
+      <feColorMatrix in="blur" type="matrix" values="1 0 0 0 1 0 0 0 0 0.18 0 0 0 0 0.66 0 0 0 .55 0"/>
+      <feMerge>
+        <feMergeNode/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  <rect width="400" height="400" rx="72" fill="#fff7fc"/>
+  <circle cx="200" cy="200" r="148" fill="url(#neon)" filter="url(#glow)"/>
+  <circle cx="200" cy="200" r="121" fill="#ffffff"/>
+  <path d="M118 236c18 50 145 50 164 0l19-76H99l19 76Z" fill="#ff2fa7"/>
+  <path d="M99 160c18-52 184-52 202 0 5 15-6 32-23 32H122c-17 0-28-17-23-32Z" fill="#ffd84d"/>
+  <path d="M154 151c4-35 30-62 66-70 6 36-8 68-38 89" fill="#04b9ff"/>
+  <text x="200" y="267" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="72" font-weight="900" fill="#27172d">DD</text>
+  <text x="200" y="315" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="28" font-weight="900" fill="#7f2cff">Sweet Shack</text>
+</svg>

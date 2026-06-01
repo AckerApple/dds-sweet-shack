@@ -1,0 +1,101 @@
+# DD's Sweet Shack TODO
+
+Remaining work for v1. Completed setup and feature work has moved to `CHANGELOG.md`.
+
+## Core V1 Goal
+
+The website is a lead-generation site, not an online store. The main user path is:
+
+1. Visitor sees photos of cakes, treats, party favors, and custom work.
+2. Visitor clicks `I Want This` or a contact button.
+3. Visitor sends a qualified request by email, text, phone, or Facebook.
+4. DD's Sweet Shack follows up to confirm details, timing, and pricing.
+
+All remaining work should support that path: strong photos, clear categories, easy mobile contact, and a simple request flow.
+
+## Priority: Pre-Launch Polish
+
+- [ ] Proofread visible site copy and fix final wording.
+  - Home hero currently says "part favors"; likely should be "party favors".
+  - Confirm final capitalization for "Sweet Treats, Made With Love".
+- [ ] Confirm final business contact details in `src/data/contact.ts`.
+  - Phone/text: `912-539-5046`
+  - Email: `ddssweetshack@gmail.com`
+  - Location: `Fort Lauderdale, FL`
+  - Website: `ddssweetshack.com`
+- [ ] Replace the current Facebook search URL with the final DD's Sweet Shack Facebook page URL.
+- [ ] Confirm the final transparent logo PNG at `public/assets/logo/dds_sweet_shack_logo_transparent.png`.
+- [ ] Confirm the final brand palette against the business card/logo.
+
+## Priority: Images And Gallery Content
+
+- [ ] Decide final image folder structure.
+  - Current site uses `public/assets/creations/`.
+  - Original plan proposed subfolders: `cakes`, `cupcakes`, `treats`, `cookies`, `seasonal`.
+- [ ] Replace remaining SVG placeholder gallery images with real product photos.
+- [ ] Decide whether `public/assets/creations/main_site_cake.png` is the final featured hero/gallery cake image.
+- [ ] Reconcile docs and data for the hero cake image.
+  - README mentions `dinosaur-birthday-cake.jpg`.
+  - Current data uses `main_site_cake.png` with an SVG fallback.
+- [ ] Finalize `src/data/creations.ts` entries.
+  - Confirm titles.
+  - Confirm categories.
+  - Confirm descriptions.
+  - Confirm featured products.
+- [ ] Add or refine image labels/alt text after final photos are selected.
+
+## Priority: QA
+
+- [ ] Run `npm run build` and fix any production build issues.
+- [ ] Test the home page gallery filters.
+- [ ] Test every `I Want This` button.
+- [ ] Test the quick request modal on desktop and mobile.
+- [ ] Test the dedicated custom order page at `/custom-order.html`.
+- [ ] Verify generated mailto subject and email body with the business owner.
+- [ ] Test `Create Email Request` on iPhone, Android, desktop mail apps, and Facebook in-app browser where possible.
+- [ ] Test `Copy Order Details` where clipboard permissions may vary.
+- [ ] Test phone, text, email, and Facebook links.
+- [ ] Check header navigation and logo link behavior on all pages.
+- [ ] Verify the mobile sticky contact buttons do not cover important content.
+- [ ] Check layout at small phone, large phone, tablet, laptop, and desktop widths.
+
+## Priority: SEO And Browser Assets
+
+- [ ] Update the home page title if desired:
+  - Suggested: `DD's Sweet Shack | Custom Cakes, Cupcakes & Sweet Treats`
+- [ ] Add Open Graph metadata for social sharing.
+- [ ] Add an Open Graph image.
+- [ ] Add favicon and app icons.
+- [ ] Add a sitemap if the deployment target benefits from one.
+- [ ] Consider structured local business data after launch basics are complete.
+
+## Priority: Launch
+
+- [ ] Decide whether launch uses GitHub Pages, custom hosting, or another static host.
+- [ ] Create a deployment workflow for GitHub Pages if using GitHub Pages.
+- [ ] Buy or confirm the domain.
+- [ ] Configure DNS.
+- [ ] Add `public/CNAME` if using a custom domain with GitHub Pages.
+- [ ] Confirm `vite.config.ts` base path works for the final deployment target.
+- [ ] Deploy the built site.
+- [ ] Run a post-deploy smoke test:
+  - Home page
+  - Gallery filters
+  - Contact page
+  - Custom order page
+  - Mailto links
+  - Phone/text links
+  - Facebook link
+
+## Future Features
+
+Not for v1 unless priorities change.
+
+- [ ] Customer testimonials.
+- [ ] Facebook feed integration.
+- [ ] Upload inspiration photo with order request.
+- [ ] SMS integration.
+- [ ] Admin image uploader.
+- [ ] Online payments.
+- [ ] Deposit collection.
+- [ ] Order tracking.

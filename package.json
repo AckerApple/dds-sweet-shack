@@ -1,0 +1,20 @@
+{
+  "name": "dds-sweet-shack",
+  "version": "1.0.0",
+  "description": "Lead-generation website for DD's Sweet Shack.",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite --host 0.0.0.0 --port 5173",
+    "build": "tsc --noEmit -p tsconfig.json && vite build",
+    "preview": "vite preview --host 0.0.0.0 --port 4173"
+  },
+  "dependencies": {
+    "taggedjs": "file:../../web/taggedjs/main/dist"
+  },
+  "devDependencies": {
+    "@types/node": "^24.3.1",
+    "typescript": "^5.9.2",
+    "vite": "^6.4.1"
+  }
+}
