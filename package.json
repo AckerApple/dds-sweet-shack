@@ -7,10 +7,11 @@
   "scripts": {
     "dev": "vite --host 0.0.0.0 --port 5173",
     "build": "tsc --noEmit -p tsconfig.json && vite build",
+    "build:gh-pages": "tsc --noEmit -p tsconfig.json && vite build --outDir ../gh-pages --emptyOutDir false",
     "preview": "vite preview --host 0.0.0.0 --port 4173"
   },
   "dependencies": {
-    "taggedjs": "file:../../web/taggedjs/main/dist"
+    "taggedjs": "file:../../../web/taggedjs/main/dist"
   },
   "devDependencies": {
     "@types/node": "^24.3.1",
