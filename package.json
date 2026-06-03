@@ -1,12 +1,14 @@
 {
   "name": "dds-sweet-shack",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Lead-generation website for DD's Sweet Shack.",
   "private": true,
   "type": "module",
   "scripts": {
     "dev": "vite --host 0.0.0.0 --port 5173",
     "build": "tsc --noEmit -p tsconfig.json && vite build",
+    "catalog:audit": "node scripts/audit-product-catalog.mjs",
+    "catalog:add-missing": "node scripts/audit-product-catalog.mjs --add-missing",
     "preview": "vite preview --host 0.0.0.0 --port 4173"
   },
   "dependencies": {

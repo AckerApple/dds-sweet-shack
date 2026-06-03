@@ -35,50 +35,66 @@ If you use a different logo filename, update `src/components/Header.tag.ts`.
 
 ## Product Photos
 
-Place gallery photos in:
+Place catalog photos in:
 
-`public/assets/creations/`
+`public/assets/creations/product_images/`
 
-Starter filenames referenced by `src/data/creations.ts`:
+Product metadata lives beside the images:
 
-- `dinosaur-birthday-cake.jpg` for the approved real cake photo
-- `farm-birthday-cake.svg`
-- `birthday-cupcake.svg`
-- `chocolate-strawberries.svg`
-- `decorated-sugar-cookies.svg`
-- `party-favor-boxes.svg`
-- `holiday-treat-tray.svg`
+`public/assets/creations/product_images/products.json`
 
-The current SVG files are visual placeholders. Save the approved dinosaur cake photo as `public/assets/creations/dinosaur-birthday-cake.jpg`, then update the first item in `src/data/creations.ts` to use `/assets/creations/dinosaur-birthday-cake.jpg`.
+Each product uses the image filename without the extension as its `productCode`. Order links use those product codes to identify requested items and quantities.
+
+Audit the folder against the catalog after adding photos:
+
+```bash
+npm run catalog:audit
+```
+
+If new image files are missing from `products.json`, create draft entries:
+
+```bash
+npm run catalog:add-missing
+```
+
+Then edit the draft title, category, description, alt text, suggested unit, tags, and `featured` status in `products.json`.
 
 ## Edit Gallery Items
 
-All gallery content lives in:
+Gallery content is built from:
 
-`src/data/creations.ts`
+`public/assets/creations/product_images/products.json`
 
 Each item has:
 
-- `id`
+- `productCode`
 - `title`
 - `category`
 - `description`
-- `image`
+- `imageName`
+- `imagePath`
+- `altText`
+- `suggestedUnit`
+- `tags`
 - optional `featured`
+
+`src/data/creations.ts` maps the catalog into the homepage gallery.
 
 Use categories from `creationCategories`: Cakes, Cupcakes, Treats, Cookies, Party Favors, Seasonal.
 
 ## Order Request Mailto Flow
 
-Clicking `I Want This` opens a request modal with the selected item already filled in. The form collects:
+Clicking `I Want This` adds the selected product to a local-storage-backed email order draft and opens the request modal. The form collects:
 
 - customer name
-- order items as `{ quantity, title }` rows
+- order items as `{ quantity, title, productCode }` rows
 - needed-by date/time
 - phone number
 - additional details or custom writing
 
 `Create Email Request` generates a `mailto:` link to `ddssweetshack@gmail.com` with subject `Order Request: [Product Name]` and an order-sheet formatted email body.
+
+The email body includes a `View order details` link such as `/order-details.html?items=productCode:quantity`. That page decodes the product codes and displays the matching catalog images.
 
 `Copy Order Details` copies the same order sheet as a fallback when the visitor's device does not open email links correctly.
 
