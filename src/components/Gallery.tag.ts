@@ -1,4 +1,4 @@
-import { button, div, h3, p, section, span, tag } from "taggedjs";
+import { a, button, div, h3, p, section, span, tag } from "taggedjs";
 import { creationCategories, creations, type CreationCategory, type CreationItem } from "../data/creations.js";
 
 type GalleryOptions = {
@@ -24,6 +24,9 @@ const visibleCreations = (selectedCategory: CreationCategory | "All") =>
     ? creations
     : creations.filter((creation) => creation.category === selectedCategory);
 
+const productDetailsHref = (creation: CreationItem) =>
+  `${import.meta.env.BASE_URL}product-details.html?product=${encodeURIComponent(creation.productCode || creation.id)}`;
+
 export const Gallery = tag((input: GalleryOptions) => {
   let props = input;
   Gallery.inputs(([next]) => {
@@ -48,11 +51,12 @@ export const Gallery = tag((input: GalleryOptions) => {
     div.class`creation-grid`(
       () => visibleCreations(props.selectedCategory).map((creation) =>
         div.class`creation-card`(
-          div
+          a
             .class`creation-image-wrap creation-image`
+            .href(productDetailsHref(creation))
             .style(imageStack(creation))
             .attr("role", "img")
-            .attr("aria-label", creation.title)(),
+            .attr("aria-label", `View details for ${creation.title}`)(),
           div.class`creation-body`(
             span.class`category-label`(creation.category),
             h3(creation.title),

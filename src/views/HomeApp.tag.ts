@@ -4,6 +4,7 @@ import { Gallery } from "../components/Gallery.tag.js";
 import { OrderModal, emptyDraft, type OrderDraft } from "../components/OrderModal.tag.js";
 import { contact } from "../data/contact.js";
 import { creations, type CreationCategory, type CreationItem } from "../data/creations.js";
+import { addCreationToOrderDraft, saveOrderDraft } from "../order-cart.js";
 import { createMailtoHref, customOrderCreation, orderBody } from "../order-request.js";
 
 type AppState = {
@@ -12,6 +13,7 @@ type AppState = {
   selectedCreation: CreationItem | null;
   orderDraft: OrderDraft;
   copied: boolean;
+  heroIndex: number;
 };
 
 const initialState: AppState = {
@@ -20,11 +22,13 @@ const initialState: AppState = {
   selectedCreation: null,
   orderDraft: emptyDraft(),
   copied: false,
+  heroIndex: 0,
 };
 
 const appState$ = array<AppState>([initialState]);
 
-const featuredCreation = creations.find((creation) => creation.featured) || creations[0];
+const heroCreations = creations.filter((creation) => creation.featured);
+const rotatingHeroCreations = heroCreations.length ? heroCreations : creations;
 
 const getState = () => appState$[0] || initialState;
 
@@ -36,12 +40,10 @@ const update = (patch: Partial<AppState>) => {
 };
 
 const openRequest = (creation: CreationItem) => {
+  const orderDraft = addCreationToOrderDraft(creation);
   update({
     selectedCreation: creation,
-    orderDraft: {
-      ...emptyDraft(),
-      orderItems: [{ quantity: 1, title: creation.title }],
-    },
+    orderDraft,
     copied: false,
     menuOpen: false,
   });
@@ -58,12 +60,14 @@ const createEmailRequest = (event?: Event) => {
 
   const state = getState();
   if (!state.selectedCreation) return;
+  saveOrderDraft(state.orderDraft);
   window.location.href = createMailtoHref(state.selectedCreation, state.orderDraft);
 };
 
 const copyOrderDetails = async () => {
   const state = getState();
   if (!state.selectedCreation) return;
+  saveOrderDraft(state.orderDraft);
   const text = orderBody(state.selectedCreation, state.orderDraft);
   try {
     await navigator.clipboard.writeText(text);
@@ -82,13 +86,28 @@ const imageStack = (creation: CreationItem) => {
   return `background-image: ${urls.join(", ")};`;
 };
 
-const Hero = () =>
+const productDetailsHref = (creation: CreationItem) =>
+  `${import.meta.env.BASE_URL}product-details.html?product=${encodeURIComponent(creation.productCode || creation.id)}`;
+
+const startHeroRotation = () => {
+  if (typeof window === "undefined" || rotatingHeroCreations.length < 2) return;
+
+  window.setInterval(() => {
+    const state = getState();
+    update({ heroIndex: (state.heroIndex + 1) % rotatingHeroCreations.length });
+  }, 4000);
+};
+
+startHeroRotation();
+
+const Hero = (featuredCreation: CreationItem) =>
   section.class`hero-section`.id("home")(
     div.class`hero-content`(
       span.class`hero-pill`("Sweet treats, made with love."),
       h1("Custom sweets for life's sweetest moments"),
-      p.class`hero-copy`("From cakes and cupcakes to treat boxes and part favors, everything is made to order just for you!"),
+      p.class`hero-copy`("From cakes and cupcakes to treat boxes and party favors, everything is made to order just for you!"),
       div.class`hero-actions`(
+        button.class`primary-button`.type("button").onClick(() => openRequest(featuredCreation))("I Want This"),
         a.class`primary-button`.href(contact.textHref)("📞 Text Us"),
         a.class`secondary-button secondary-button-filled`.href(contact.phoneHref)("📞 Call Us"),
         a.class`secondary-button`.href(contact.emailHref)("✉️ Email Us")
@@ -98,14 +117,15 @@ const Hero = () =>
         span("f")
       )
     ),
-    div
+    a
       .class`hero-media`
+      .href(productDetailsHref(featuredCreation))
       .style(imageStack(featuredCreation))
       .attr("role", "img")
-      .attr("aria-label", "Featured DD's Sweet Shack cake or treat")(
-      div.class`hero-card-note`(
-        span("Custom orders welcome"),
-        p("Tell us the theme, date, quantity, and writing. We'll confirm details and pricing before anything is final.")
+      .attr("aria-label", `View details for ${featuredCreation.title}`)(
+      div.class`hero-product-note`(
+        span(featuredCreation.title),
+        p("View product details")
       )
     )
   );
@@ -154,7 +174,7 @@ export const HomeApp = tag(() => {
         onCloseMenu: () => update({ menuOpen: false }),
       }),
       main(
-        Hero(),
+        Hero(rotatingHeroCreations[state.heroIndex % rotatingHeroCreations.length]),
         () => Gallery({
           selectedCategory: state.selectedCategory,
           onSelectCategory: (selectedCategory: CreationCategory | "All") => update({ selectedCategory }),
@@ -170,7 +190,9 @@ export const HomeApp = tag(() => {
         copied: state.copied,
         onClose: () => update({ selectedCreation: null, copied: false }),
         onDraftChange: <K extends keyof OrderDraft>(field: K, value: OrderDraft[K]) => {
-          update({ orderDraft: { ...getState().orderDraft, [field]: value }, copied: false });
+          const orderDraft = { ...getState().orderDraft, [field]: value };
+          saveOrderDraft(orderDraft);
+          update({ orderDraft, copied: false });
         },
         onCreateEmail: createEmailRequest,
         onCopy: copyOrderDetails,

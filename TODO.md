@@ -16,7 +16,6 @@ All remaining work should support that path: strong photos, clear categories, ea
 ## Priority: Pre-Launch Polish
 
 - [ ] Proofread visible site copy and fix final wording.
-  - Home hero currently says "part favors"; likely should be "party favors".
   - Confirm final capitalization for "Sweet Treats, Made With Love".
 - [ ] Confirm final business contact details in `src/data/contact.ts`.
   - Phone/text: `912-539-5046`
@@ -30,25 +29,20 @@ All remaining work should support that path: strong photos, clear categories, ea
 ## Priority: Images And Gallery Content
 
 - [ ] Decide final image folder structure.
-  - Current site uses `public/assets/creations/`.
+  - Current catalog photos use `public/assets/creations/product_images/`.
   - Original plan proposed subfolders: `cakes`, `cupcakes`, `treats`, `cookies`, `seasonal`.
-- [ ] Replace remaining SVG placeholder gallery images with real product photos.
-- [ ] Decide whether `public/assets/creations/main_site_cake.png` is the final featured hero/gallery cake image.
-- [ ] Reconcile docs and data for the hero cake image.
-  - README mentions `dinosaur-birthday-cake.jpg`.
-  - Current data uses `main_site_cake.png` with an SVG fallback.
+- [ ] When new product photos are added, run `npm run catalog:audit` and update `products.json` as needed.
 - [ ] Finalize `src/data/creations.ts` entries.
   - Confirm titles.
   - Confirm categories.
   - Confirm descriptions.
   - Confirm featured products.
-- [ ] Add or refine image labels/alt text after final photos are selected.
 
 ## Priority: QA
 
-- [ ] Run `npm run build` and fix any production build issues.
 - [ ] Test the home page gallery filters.
 - [ ] Test every `I Want This` button.
+- [ ] Test every product photo link to `/product-details.html`.
 - [ ] Test the quick request modal on desktop and mobile.
 - [ ] Test the dedicated custom order page at `/custom-order.html`.
 - [ ] Verify generated mailto subject and email body with the business owner.
@@ -61,11 +55,7 @@ All remaining work should support that path: strong photos, clear categories, ea
 
 ## Priority: SEO And Browser Assets
 
-- [ ] Update the home page title if desired:
-  - Suggested: `DD's Sweet Shack | Custom Cakes, Cupcakes & Sweet Treats`
-- [ ] Add Open Graph metadata for social sharing.
-- [ ] Add an Open Graph image.
-- [ ] Add favicon and app icons.
+- [ ] Add app icons if needed beyond the current emoji favicon.
 - [ ] Add a sitemap if the deployment target benefits from one.
 - [ ] Consider structured local business data after launch basics are complete.
 

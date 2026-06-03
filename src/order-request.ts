@@ -4,8 +4,23 @@ import type { OrderDraft } from "./components/OrderModal.tag.js";
 
 export const formatOrderItems = (draft: OrderDraft) =>
   draft.orderItems
-    .map((item) => `${item.quantity || 1} x ${item.title || "Untitled item"}`)
+    .map((item) => {
+      const productCode = item.productCode ? ` [${item.productCode}]` : "";
+      return `${item.quantity || 1} x ${item.title || "Untitled item"}${productCode}`;
+    })
     .join("\n");
+
+export const orderDetailsParam = (draft: OrderDraft) =>
+  draft.orderItems
+    .filter((item) => item.productCode)
+    .map((item) => `${encodeURIComponent(item.productCode as string)}:${Math.max(1, item.quantity || 1)}`)
+    .join(",");
+
+export const createOrderDetailsUrl = (draft: OrderDraft) => {
+  const items = orderDetailsParam(draft);
+  if (!items) return "";
+  return `https://${contact.website}/order-details.html?items=${items}`;
+};
 
 export const orderBody = (creation: CreationItem, draft: OrderDraft) =>
   [
@@ -19,6 +34,9 @@ export const orderBody = (creation: CreationItem, draft: OrderDraft) =>
     "",
     "What are you wanting to order:",
     formatOrderItems(draft),
+    "",
+    "View order details:",
+    createOrderDetailsUrl(draft) || "No catalog products selected.",
     "",
     "Needed by:",
     draft.neededBy,

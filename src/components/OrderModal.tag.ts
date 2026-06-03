@@ -5,13 +5,16 @@ import {
   h2,
   input,
   label,
+  option,
   p,
+  select,
   span,
   tag,
   textarea,
 } from "taggedjs";
 import type { CreationItem } from "../data/creations.js";
 import { contact } from "../data/contact.js";
+import { products } from "../data/products.js";
 
 export type OrderDraft = {
   customerName: string;
@@ -24,6 +27,7 @@ export type OrderDraft = {
 export type OrderItem = {
   quantity: number;
   title: string;
+  productCode?: string;
 };
 
 type OrderModalOptions = {
@@ -130,19 +134,59 @@ export const OrderRequestForm = tag((options: OrderRequestFormOptions) => {
           ),
           label.class`form-field order-item-title`(
             span("Item"),
-            input
-              .type("text")
-              .value(() => item.title)
+            select
+              .value(() => item.productCode || (item.title ? "custom" : ""))
               .attr("required", "true")
-              .attr("placeholder", "Cake, cupcakes, cookies...")
-              .onInput((event) =>
+              .onChange((event) => {
+                const productCode = event.target.value;
+                const product = products.find((entry) => entry.productCode === productCode);
                 props.onDraftChange(
                   "orderItems",
-                  updateOrderItem(props.draft.orderItems, index, {
-                    title: event.target.value,
-                  }),
-                )
-              )()
+                  updateOrderItem(props.draft.orderItems, index, product
+                    ? {
+                        productCode: product.productCode,
+                        title: product.title,
+                      }
+                    : {
+                        productCode: undefined,
+                        title: productCode === "custom" ? "Custom item" : "",
+                      }),
+                );
+              })(
+                option.value("").attr("disabled", "true")("Select a product"),
+                products.map((product) =>
+                  option.value(product.productCode)(`${product.title} (${product.productCode})`)
+                ),
+                option.value("custom")("Custom / not pictured")
+              ),
+            () => item.productCode === undefined
+              ? input
+                .type("text")
+                .value(() => item.title)
+                .attr("required", "true")
+                .attr("placeholder", "Describe custom item")
+                .onInput((event) =>
+                  props.onDraftChange(
+                    "orderItems",
+                    updateOrderItem(props.draft.orderItems, index, {
+                      title: event.target.value,
+                    }),
+                  )
+                )()
+              : null,
+            () => item.productCode
+              ? input
+                .type("hidden")
+                .value(() => item.productCode || "")()
+              : null
+          ),
+          label.class`form-field order-item-code`(
+            span("Code"),
+            input
+              .type("text")
+              .value(() => item.productCode || "custom")
+              .attr("readonly", "true")
+              .attr("aria-label", "Product code")()
           ),
           button
             .class`icon-button order-item-remove`

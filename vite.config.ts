@@ -11,6 +11,8 @@ export default defineConfig({
         main: resolve(__dirname, "index.html"),
         customOrder: resolve(__dirname, "custom-order.html"),
         contact: resolve(__dirname, "contact.html"),
+        orderDetails: resolve(__dirname, "order-details.html"),
+        productDetails: resolve(__dirname, "product-details.html"),
       },
       output: {
         manualChunks(id) {

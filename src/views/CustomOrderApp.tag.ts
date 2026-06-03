@@ -1,7 +1,8 @@
 import { a, array, div, footer, h1, h2, main, p, section, span, subscribe, tag } from "taggedjs";
 import { Header } from "../components/Header.tag.js";
-import { emptyDraft, OrderRequestForm, type OrderDraft } from "../components/OrderModal.tag.js";
+import { OrderRequestForm, type OrderDraft } from "../components/OrderModal.tag.js";
 import { contact } from "../data/contact.js";
+import { loadOrderDraft, saveOrderDraft } from "../order-cart.js";
 import { createMailtoHref, customOrderCreation, orderBody } from "../order-request.js";
 
 type CustomOrderState = {
@@ -12,10 +13,7 @@ type CustomOrderState = {
 
 const initialState: CustomOrderState = {
   menuOpen: false,
-  orderDraft: {
-    ...emptyDraft(),
-    orderItems: [{ quantity: 1, title: "" }],
-  },
+  orderDraft: loadOrderDraft(),
   copied: false,
 };
 
@@ -39,11 +37,13 @@ const createEmailRequest = (event?: Event) => {
     return;
   }
 
+  saveOrderDraft(getState().orderDraft);
   window.location.href = createMailtoHref(customOrderCreation, getState().orderDraft);
 };
 
 const copyOrderDetails = async () => {
   const text = orderBody(customOrderCreation, getState().orderDraft);
+  saveOrderDraft(getState().orderDraft);
   try {
     await navigator.clipboard.writeText(text);
     update({ copied: true });
@@ -94,10 +94,14 @@ export const CustomOrderApp = tag(() =>
             copied: state.copied,
             showSelectedItem: false,
             onDraftChange: <K extends keyof OrderDraft>(field: K, value: OrderDraft[K]) =>
-              update({
-                orderDraft: { ...getState().orderDraft, [field]: value },
-                copied: false,
-              }),
+              {
+                const orderDraft = { ...getState().orderDraft, [field]: value };
+                saveOrderDraft(orderDraft);
+                update({
+                  orderDraft,
+                  copied: false,
+                });
+              },
             onCreateEmail: createEmailRequest,
             onCopy: copyOrderDetails,
           })
