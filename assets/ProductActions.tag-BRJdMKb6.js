@@ -1,0 +1,1 @@
+import{v as n,c as a}from"./taggedjs-DP8Amcz0.js";const e=n(o=>{let t=o;return e.inputs(([s])=>{t=s}),a.class(()=>t.className||"primary-button").type("button").onClick(()=>t.onRequest(t.creation))("I Want This")});export{e as P};
