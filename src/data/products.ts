@@ -11,6 +11,7 @@ export type ProductCatalogItem = {
   altText: string;
   suggestedUnit: string;
   tags: string[];
+  updatedAt?: string;
   featured?: boolean;
 };
 

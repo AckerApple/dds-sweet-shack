@@ -1,20 +1,20 @@
 import {
+  a,
   button,
   div,
   form,
   h2,
+  img,
   input,
   label,
-  option,
   p,
-  select,
   span,
   tag,
   textarea,
 } from "taggedjs";
 import type { CreationItem } from "../data/creations.js";
 import { contact } from "../data/contact.js";
-import { products } from "../data/products.js";
+import { productByCode } from "../data/products.js";
 
 export type OrderDraft = {
   customerName: string;
@@ -84,6 +84,11 @@ const removeOrderItem = (items: OrderItem[], index: number) => {
   return nextItems.length ? nextItems : [{ quantity: 1, title: "" }];
 };
 
+const assetPath = (path: string) => `${import.meta.env.BASE_URL}${path.replace(/^\/+/, "")}`;
+
+const productDetailsHref = (productCode: string) =>
+  `${import.meta.env.BASE_URL}product-details.html?product=${encodeURIComponent(productCode)}`;
+
 export const OrderRequestForm = tag((options: OrderRequestFormOptions) => {
   let props = options;
   OrderRequestForm.inputs(([next]) => {
@@ -114,7 +119,14 @@ export const OrderRequestForm = tag((options: OrderRequestFormOptions) => {
         )("Add item")
       ),
       () => props.draft.orderItems.map((item, index) =>
-        div.class`order-item-row`(
+        {
+          const product = item.productCode ? productByCode.get(item.productCode) : undefined;
+          return div.class`order-item-row`(
+          div.class`order-item-thumb`(
+            product
+              ? img.src(assetPath(product.imagePath)).alt(product.altText || product.title)()
+              : span("Custom")
+          ),
           label.class`form-field order-item-qty`(
             span("Qty"),
             input
@@ -132,35 +144,15 @@ export const OrderRequestForm = tag((options: OrderRequestFormOptions) => {
                 )
               )()
           ),
-          label.class`form-field order-item-title`(
-            span("Item"),
-            select
-              .value(() => item.productCode || (item.title ? "custom" : ""))
-              .attr("required", "true")
-              .onChange((event) => {
-                const productCode = event.target.value;
-                const product = products.find((entry) => entry.productCode === productCode);
-                props.onDraftChange(
-                  "orderItems",
-                  updateOrderItem(props.draft.orderItems, index, product
-                    ? {
-                        productCode: product.productCode,
-                        title: product.title,
-                      }
-                    : {
-                        productCode: undefined,
-                        title: productCode === "custom" ? "Custom item" : "",
-                      }),
-                );
-              })(
-                option.value("").attr("disabled", "true")("Select a product"),
-                products.map((product) =>
-                  option.value(product.productCode)(`${product.title} (${product.productCode})`)
-                ),
-                option.value("custom")("Custom / not pictured")
-              ),
-            () => item.productCode === undefined
-              ? input
+          div.class`order-item-title`(
+            span.class`order-item-label`("Item"),
+            product
+              ? a
+                .class`order-item-product-link`
+                .href(productDetailsHref(product.productCode))
+                .attr("target", "_blank")
+                .attr("rel", "noreferrer")(product.title)
+              : input
                 .type("text")
                 .value(() => item.title)
                 .attr("required", "true")
@@ -172,28 +164,18 @@ export const OrderRequestForm = tag((options: OrderRequestFormOptions) => {
                       title: event.target.value,
                     }),
                   )
-                )()
-              : null,
-            () => item.productCode
-              ? input
-                .type("hidden")
-                .value(() => item.productCode || "")()
+                )(),
+            item.productCode
+              ? input.type("hidden").value(() => item.productCode || "")()
               : null
-          ),
-          label.class`form-field order-item-code`(
-            span("Code"),
-            input
-              .type("text")
-              .value(() => item.productCode || "custom")
-              .attr("readonly", "true")
-              .attr("aria-label", "Product code")()
           ),
           button
             .class`icon-button order-item-remove`
             .type("button")
             .attr("aria-label", "Remove order item")
             .onClick(() => props.onDraftChange("orderItems", removeOrderItem(props.draft.orderItems, index)))("x")
-        )
+        );
+        }
       )
     ),
     div.class`form-grid`(

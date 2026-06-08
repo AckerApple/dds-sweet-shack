@@ -9,6 +9,7 @@
     "altText": "Blue custom number cake with white flowers and pearl accents.",
     "suggestedUnit": "cake",
     "tags": ["number cake", "custom cake", "birthday cake", "blue frosting"],
+    "updatedAt": "2026-06-08T00:00:00.000Z",
     "featured": true
   },
   {
@@ -21,6 +22,7 @@
     "altText": "Colorful dinosaur-themed birthday cake.",
     "suggestedUnit": "cake",
     "tags": ["birthday cake", "dinosaur theme", "custom cake", "kids parties"],
+    "updatedAt": "2026-06-08T00:00:00.000Z",
     "featured": true
   },
   {
@@ -33,6 +35,7 @@
     "altText": "Packaged heart-shaped mini cakes with thank-you labels.",
     "suggestedUnit": "each",
     "tags": ["mini cakes", "party favors", "thank you gifts", "events"],
+    "updatedAt": "2026-06-08T00:00:00.000Z",
     "featured": true
   },
   {
@@ -45,6 +48,7 @@
     "altText": "Red velvet cake jar with cream frosting and pecans.",
     "suggestedUnit": "jar",
     "tags": ["cake jar", "red velvet", "individual treats"],
+    "updatedAt": "2026-06-08T00:00:00.000Z",
     "featured": true
   },
   {
@@ -57,6 +61,7 @@
     "altText": "Chocolate cupcakes with green, orange, and white frosting.",
     "suggestedUnit": "cupcake",
     "tags": ["cupcakes", "custom colors", "party treats"],
+    "updatedAt": "2026-06-08T00:00:00.000Z",
     "featured": true
   },
   {
@@ -68,7 +73,8 @@
     "imagePath": "/assets/creations/product_images/592457146_838777705569574_2073945322258838433_n.jpg",
     "altText": "Chocolate bark pieces topped with colorful candy.",
     "suggestedUnit": "piece",
-    "tags": ["chocolate bark", "candy", "party trays"]
+    "tags": ["chocolate bark", "candy", "party trays"],
+    "updatedAt": "2026-06-08T00:00:00.000Z"
   },
   {
     "productCode": "608868952_863957963051548_2974384855038886294_n",
@@ -79,7 +85,8 @@
     "imagePath": "/assets/creations/product_images/608868952_863957963051548_2974384855038886294_n.jpg",
     "altText": "Peppermint chocolate bark in a holiday tray.",
     "suggestedUnit": "piece",
-    "tags": ["peppermint", "chocolate bark", "holiday treats", "seasonal"]
+    "tags": ["peppermint", "chocolate bark", "holiday treats", "seasonal"],
+    "updatedAt": "2026-06-08T00:00:00.000Z"
   },
   {
     "productCode": "608939033_863958729718138_3990364284028736931_n",
@@ -90,6 +97,7 @@
     "imagePath": "/assets/creations/product_images/608939033_863958729718138_3990364284028736931_n.jpg",
     "altText": "Caramel cupcake bites with piped cream frosting.",
     "suggestedUnit": "bite",
-    "tags": ["cupcakes", "caramel", "mini treats"]
+    "tags": ["cupcakes", "caramel", "mini treats"],
+    "updatedAt": "2026-06-08T00:00:00.000Z"
   }
 ]

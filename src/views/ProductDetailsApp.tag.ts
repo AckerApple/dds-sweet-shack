@@ -1,6 +1,7 @@
-import { a, array, button, div, footer, h1, h2, main, p, section, span, subscribe, tag } from "taggedjs";
+import { a, array, div, footer, h1, h2, main, p, section, span, subscribe, tag } from "taggedjs";
 import { Header } from "../components/Header.tag.js";
 import { OrderModal, type OrderDraft } from "../components/OrderModal.tag.js";
+import { ProductRequestButton } from "../components/ProductActions.tag.js";
 import { contact } from "../data/contact.js";
 import { productByCode, productToCreation, products } from "../data/products.js";
 import type { CreationItem } from "../data/creations.js";
@@ -43,11 +44,10 @@ const update = (patch: Partial<ProductDetailsState>) => {
 
 const assetPath = (path: string) => `${import.meta.env.BASE_URL}${path.replace(/^\/+/, "")}`;
 
-const openRequest = () => {
-  if (!selectedCreation) return;
+const openRequest = (creation: CreationItem) => {
   update({
-    selectedCreation,
-    orderDraft: addCreationToOrderDraft(selectedCreation),
+    selectedCreation: creation,
+    orderDraft: addCreationToOrderDraft(creation),
     copied: false,
     menuOpen: false,
   });
@@ -128,7 +128,10 @@ const ProductDetails = () => {
         selectedProduct.tags.map((tagText) => span(tagText))
       ),
       div.class`product-detail-actions`(
-        button.class`primary-button`.type("button").onClick(openRequest)("I Want This"),
+        () => ProductRequestButton({
+          creation: selectedCreation,
+          onRequest: openRequest,
+        }),
         a.class`secondary-button`.href(`${import.meta.env.BASE_URL}#creations`)("Back to Gallery")
       )
     )

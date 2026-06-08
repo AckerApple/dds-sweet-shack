@@ -32,22 +32,40 @@ All remaining work should support that path: strong photos, clear categories, ea
   - Current catalog photos use `public/assets/creations/product_images/`.
   - Original plan proposed subfolders: `cakes`, `cupcakes`, `treats`, `cookies`, `seasonal`.
 - [ ] When new product photos are added, run `npm run catalog:audit` and update `products.json` as needed.
-- [ ] Finalize `src/data/creations.ts` entries.
+- [ ] Finalize product catalog entries in `public/assets/creations/product_images/products.json`.
   - Confirm titles.
   - Confirm categories.
   - Confirm descriptions.
+  - Confirm alt text.
+  - Confirm suggested units.
+  - Confirm tags.
   - Confirm featured products.
+- [ ] Decide whether Danielle should use the hidden `/admin-products.html` free-mode editor for copy updates before launch.
+- [ ] Document the admin editor handoff process:
+  - Open `/admin-products.html`.
+  - Edit existing products only.
+  - Click `💾 Save Changes`.
+  - Download `products.json`.
+  - Email the file to `acker.dawn.apple@gmail.com`.
 
 ## Priority: QA
 
 - [ ] Test the home page gallery filters.
-- [ ] Test every `I Want This` button.
-- [ ] Test every product photo link to `/product-details.html`.
+- [ ] Test every floating gallery `I Want This` button.
+- [ ] Test the hero and product detail page `I Want This` buttons.
+- [ ] Test every product title link to `/product-details.html`.
 - [ ] Test the quick request modal on desktop and mobile.
+- [ ] Verify order modal item rows show product thumbnails and title links without shopper-facing product codes.
 - [ ] Test the dedicated custom order page at `/custom-order.html`.
 - [ ] Verify generated mailto subject and email body with the business owner.
 - [ ] Test `Create Email Request` on iPhone, Android, desktop mail apps, and Facebook in-app browser where possible.
 - [ ] Test `Copy Order Details` where clipboard permissions may vary.
+- [ ] Test hidden admin editor save flow:
+  - Local edits persist after refresh.
+  - Edited items show `Publish ready`.
+  - Stale local edits are ignored when catalog `updatedAt` is newer.
+  - `💾 Save Changes` downloads valid JSON.
+  - `Add Product` shows the free-mode limitation modal.
 - [ ] Test phone, text, email, and Facebook links.
 - [ ] Check header navigation and logo link behavior on all pages.
 - [ ] Verify the mobile sticky contact buttons do not cover important content.

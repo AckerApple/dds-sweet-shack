@@ -23,7 +23,7 @@ export const Header = tag((input: HeaderOptions) => {
   return (
   header.class`site-header`(
     div.class`header-inner`(
-      a.class`brand-link`.href("#home").onClick(() => props.onCloseMenu())(
+      a.class`brand-link`.href(`${import.meta.env.BASE_URL}#home`).onClick(() => props.onCloseMenu())(
         img
           .class`brand-logo`
           .src(`${import.meta.env.BASE_URL}assets/logo/dds_sweet_shack_logo_transparent.png`)

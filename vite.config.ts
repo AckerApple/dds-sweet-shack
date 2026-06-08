@@ -13,6 +13,7 @@ export default defineConfig({
         contact: resolve(__dirname, "contact.html"),
         orderDetails: resolve(__dirname, "order-details.html"),
         productDetails: resolve(__dirname, "product-details.html"),
+        adminProducts: resolve(__dirname, "admin-products.html"),
       },
       output: {
         manualChunks(id) {

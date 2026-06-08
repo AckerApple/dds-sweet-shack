@@ -2,6 +2,7 @@ import { a, array, button, div, footer, h1, h2, main, p, section, span, subscrib
 import { Header } from "../components/Header.tag.js";
 import { Gallery } from "../components/Gallery.tag.js";
 import { OrderModal, emptyDraft, type OrderDraft } from "../components/OrderModal.tag.js";
+import { ProductRequestButton } from "../components/ProductActions.tag.js";
 import { contact } from "../data/contact.js";
 import { creations, type CreationCategory, type CreationItem } from "../data/creations.js";
 import { addCreationToOrderDraft, saveOrderDraft } from "../order-cart.js";
@@ -107,7 +108,10 @@ const Hero = (featuredCreation: CreationItem) =>
       h1("Custom sweets for life's sweetest moments"),
       p.class`hero-copy`("From cakes and cupcakes to treat boxes and party favors, everything is made to order just for you!"),
       div.class`hero-actions`(
-        button.class`primary-button`.type("button").onClick(() => openRequest(featuredCreation))("I Want This"),
+        () => ProductRequestButton({
+          creation: featuredCreation,
+          onRequest: openRequest,
+        }),
         a.class`primary-button`.href(contact.textHref)("📞 Text Us"),
         a.class`secondary-button secondary-button-filled`.href(contact.phoneHref)("📞 Call Us"),
         a.class`secondary-button`.href(contact.emailHref)("✉️ Email Us")

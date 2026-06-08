@@ -1,5 +1,31 @@
 # Changelog
 
+## v1.2.0 - 2026-06-08
+
+Admin product editing and product request UX updates.
+
+### Added
+
+- Added hidden `/admin-products.html` for editing existing product catalog records in browser local storage.
+- Added `updatedAt` timestamps to product catalog records.
+- Added local draft conflict handling so newer catalog data overrides stale browser edits, while newer local edits show as `Publish ready`.
+- Added free-mode admin save guidance that downloads `products.json` and directs the user to email it to `acker.dawn.apple@gmail.com`.
+- Added a shared product request button component for product request CTAs.
+- Added floating `I Want This` buttons over home gallery product images.
+- Added product thumbnails and product detail links inside order request item rows.
+
+### Changed
+
+- Changed the admin product editor to edit existing records only; the `Add Product` action now explains the free-mode limitation.
+- Changed admin update badges from raw ISO timestamps to relative changed-time labels.
+- Changed the shared logo link to return to the public homepage from every page, including admin.
+- Changed order request item rows to hide shopper-facing product codes and show product titles instead of product selection dropdowns.
+- Removed the admin `Copy JSON` action in favor of the guided save/download flow.
+
+### Verified
+
+- Ran `npm run build`.
+
 ## v1.1.0 - 2026-06-03
 
 Product-photo catalog, order-detail links, and launch polish updates.
