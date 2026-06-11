@@ -17,12 +17,15 @@ All remaining work should support that path: strong photos, clear categories, ea
 
 - [ ] Proofread visible site copy and fix final wording.
   - Confirm final capitalization for "Sweet Treats, Made With Love".
-- [ ] Confirm final business contact details in `src/data/contact.ts`.
+- [x] Confirm final business contact details in `src/data/contact.ts`.
   - Phone/text: `912-539-5046`
   - Email: `ddssweetshack@gmail.com`
   - Location: `Fort Lauderdale, FL`
   - Website: `ddssweetshack.com`
-- [ ] Replace the current Facebook search URL with the final DD's Sweet Shack Facebook page URL.
+- [x] Replace the current Facebook search URL with the final DD's Sweet Shack Facebook page URL.
+- [x] Add the business card image to the contact page.
+- [x] Remove the website card from the contact page.
+- [x] Remove unneeded section kicker badges from the home gallery, home custom-orders section, and contact page.
 - [ ] Confirm the final transparent logo PNG at `public/assets/logo/dds_sweet_shack_logo_transparent.png`.
 - [ ] Confirm the final brand palette against the business card/logo.
 
@@ -44,7 +47,7 @@ All remaining work should support that path: strong photos, clear categories, ea
 - [ ] Document the admin editor handoff process:
   - Open `/admin-products.html`.
   - Edit existing products only.
-  - Click `💾 Save Changes`.
+  - Click `Download products.json`.
   - Download `products.json`.
   - Email the file to `acker.dawn.apple@gmail.com`.
 
@@ -64,7 +67,7 @@ All remaining work should support that path: strong photos, clear categories, ea
   - Local edits persist after refresh.
   - Edited items show `Publish ready`.
   - Stale local edits are ignored when catalog `updatedAt` is newer.
-  - `💾 Save Changes` downloads valid JSON.
+  - `Download products.json` downloads valid JSON.
   - `Add Product` shows the free-mode limitation modal.
 - [ ] Test phone, text, email, and Facebook links.
 - [ ] Check header navigation and logo link behavior on all pages.

@@ -33,7 +33,6 @@ export const Gallery = tag((input: GalleryOptions) => {
 
   return section.class`section gallery-section`.id("creations")(
     div.class`section-heading`(
-      span.class`section-kicker`("Creations"),
       h3("Pick a sweet starting point"),
       p("Choose a design you like, then send a quick request. Pricing and final details are confirmed after contact.")
     ),

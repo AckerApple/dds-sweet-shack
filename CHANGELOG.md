@@ -1,5 +1,31 @@
 # Changelog
 
+## v1.3.0 - 2026-06-11
+
+Contact page, home hero, and pre-launch polish updates.
+
+### Added
+
+- Added the DD's Sweet Shack business card image to the bottom of the contact page.
+- Added a purple page background behind the footer so short pages no longer show white space below the footer.
+- Added a fast 0.75 second crossfade between rotating home hero product images.
+
+### Changed
+
+- Changed the Facebook URL from a search link to `https://www.facebook.com/DDsSweetShack`.
+- Removed the website card from the contact page because visitors are already on the website.
+- Removed unneeded `Contact`, `Creations`, and `Custom Orders` section kicker badges.
+- Changed the home gallery grid so product cards keep a 300px minimum width when space allows.
+- Fixed the home hero rotation so the image, product title/link, and `I Want This` action all stay synced to the current product.
+- Moved the home hero `I Want This` action from the contact-action button group onto the rotating product image.
+
+### Verified
+
+- Ran `npm run build`.
+- Browser-checked the contact page business card, Facebook link, removed website card, and footer background behavior.
+- Browser-checked the home hero rotation, fade layer, product details link, and image-overlay `I Want This` modal target.
+- Browser-checked the home gallery card width at desktop, tablet, and mobile widths.
+
 ## v1.2.0 - 2026-06-08
 
 Admin product editing and product request UX updates.

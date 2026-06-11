@@ -6,6 +6,6 @@ export const contact = {
   emailHref: "mailto:ddssweetshack@gmail.com",
   location: "Fort Lauderdale, FL",
   facebookName: "DD's Sweet Shack",
-  facebookHref: "https://www.facebook.com/search/top?q=DD%27s%20Sweet%20Shack",
+  facebookHref: "https://www.facebook.com/DDsSweetShack",
   website: "ddssweetshack.com",
 };

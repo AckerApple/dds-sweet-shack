@@ -2,7 +2,6 @@ import { a, array, button, div, footer, h1, h2, main, p, section, span, subscrib
 import { Header } from "../components/Header.tag.js";
 import { Gallery } from "../components/Gallery.tag.js";
 import { OrderModal, emptyDraft, type OrderDraft } from "../components/OrderModal.tag.js";
-import { ProductRequestButton } from "../components/ProductActions.tag.js";
 import { contact } from "../data/contact.js";
 import { creations, type CreationCategory, type CreationItem } from "../data/creations.js";
 import { addCreationToOrderDraft, saveOrderDraft } from "../order-cart.js";
@@ -15,6 +14,7 @@ type AppState = {
   orderDraft: OrderDraft;
   copied: boolean;
   heroIndex: number;
+  previousHeroIndex: number | null;
 };
 
 const initialState: AppState = {
@@ -24,6 +24,7 @@ const initialState: AppState = {
   orderDraft: emptyDraft(),
   copied: false,
   heroIndex: 0,
+  previousHeroIndex: null,
 };
 
 const appState$ = array<AppState>([initialState]);
@@ -95,23 +96,39 @@ const startHeroRotation = () => {
 
   window.setInterval(() => {
     const state = getState();
-    update({ heroIndex: (state.heroIndex + 1) % rotatingHeroCreations.length });
+    const heroIndex = (state.heroIndex + 1) % rotatingHeroCreations.length;
+    update({
+      heroIndex,
+      previousHeroIndex: state.heroIndex,
+    });
+
+    window.setTimeout(() => {
+      if (getState().heroIndex === heroIndex) {
+        update({ previousHeroIndex: null });
+      }
+    }, 750);
   }, 4000);
 };
 
 startHeroRotation();
 
-const Hero = (featuredCreation: CreationItem) =>
-  section.class`hero-section`.id("home")(
+type HeroOptions = {
+  featuredCreation: CreationItem;
+  previousCreation: CreationItem | null;
+};
+
+const Hero = tag((input: HeroOptions) => {
+  let props = input;
+  Hero.inputs(([next]) => {
+    props = next;
+  });
+
+  return section.class`hero-section`.id("home")(
     div.class`hero-content`(
       span.class`hero-pill`("Sweet treats, made with love."),
       h1("Custom sweets for life's sweetest moments"),
       p.class`hero-copy`("From cakes and cupcakes to treat boxes and party favors, everything is made to order just for you!"),
       div.class`hero-actions`(
-        () => ProductRequestButton({
-          creation: featuredCreation,
-          onRequest: openRequest,
-        }),
         a.class`primary-button`.href(contact.textHref)("📞 Text Us"),
         a.class`secondary-button secondary-button-filled`.href(contact.phoneHref)("📞 Call Us"),
         a.class`secondary-button`.href(contact.emailHref)("✉️ Email Us")
@@ -121,24 +138,36 @@ const Hero = (featuredCreation: CreationItem) =>
         span("f")
       )
     ),
-    a
+    div
       .class`hero-media`
-      .href(productDetailsHref(featuredCreation))
-      .style(imageStack(featuredCreation))
       .attr("role", "img")
-      .attr("aria-label", `View details for ${featuredCreation.title}`)(
-      div.class`hero-product-note`(
-        span(featuredCreation.title),
+      .attr("aria-label", () => `View details for ${props.featuredCreation.title}`)(
+      div
+        .class`hero-media-image`
+        .style(() => imageStack(props.featuredCreation))(),
+      () => props.previousCreation
+        ? div
+          .class`hero-media-image hero-media-image-previous`
+          .style(imageStack(props.previousCreation))()
+        : null,
+      button
+        .class`primary-button hero-image-request`
+        .type("button")
+        .onClick(() => openRequest(props.featuredCreation))("I Want This"),
+      a
+        .class`hero-product-note`
+        .href(() => productDetailsHref(props.featuredCreation))(
+        span(() => props.featuredCreation.title),
         p("View product details")
       )
     )
   );
+});
 
 const CustomOrders = () =>
   section.class`section custom-section`.id("custom-orders")(
     div.class`custom-panel`(
       div(
-        span.class`section-kicker`("Custom Orders"),
         h2("Need something made just for your event?"),
         p("🎂 Send the idea, theme, colors, date, quantity, and any custom writing. DD's Sweet Shack will follow up to confirm what is possible, timing, and pricing."),
         p.class`form-note`("💳 No payment is collected online. DD's Sweet Shack will contact you to confirm details and pricing.")
@@ -178,7 +207,12 @@ export const HomeApp = tag(() => {
         onCloseMenu: () => update({ menuOpen: false }),
       }),
       main(
-        Hero(rotatingHeroCreations[state.heroIndex % rotatingHeroCreations.length]),
+        () => Hero({
+          featuredCreation: rotatingHeroCreations[state.heroIndex % rotatingHeroCreations.length],
+          previousCreation: state.previousHeroIndex === null
+            ? null
+            : rotatingHeroCreations[state.previousHeroIndex % rotatingHeroCreations.length],
+        }),
         () => Gallery({
           selectedCategory: state.selectedCategory,
           onSelectCategory: (selectedCategory: CreationCategory | "All") => update({ selectedCategory }),

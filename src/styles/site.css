@@ -8,10 +8,11 @@
   --purple: #7f2cff;
   --blue: #04b9ff;
   --yellow: #ffd84d;
+  --footer-bg: #27172d;
   --shadow: 0 14px 32px rgba(97, 36, 112, 0.13);
   font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   color: var(--ink);
-  background: var(--surface);
+  background: var(--footer-bg);
 }
 
 * {
@@ -20,10 +21,15 @@
 
 html {
   scroll-behavior: smooth;
+  background: var(--footer-bg);
 }
 
 body {
   margin: 0;
+  background: var(--footer-bg);
+}
+
+main {
   background:
     radial-gradient(circle at 20% 4rem, rgba(255, 47, 167, 0.11), transparent 30rem),
     radial-gradient(circle at 90% 7rem, rgba(4, 185, 255, 0.12), transparent 30rem),
@@ -296,8 +302,31 @@ h1 {
   box-shadow: none;
 }
 
+.hero-media-image {
+  position: absolute;
+  inset: 0;
+  background-position: center;
+  background-size: cover;
+}
+
+.hero-media-image-previous {
+  z-index: 1;
+  animation: hero-image-fade-out 0.75s ease-out forwards;
+}
+
+@keyframes hero-image-fade-out {
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+  }
+}
+
 .hero-product-note {
   position: absolute;
+  z-index: 2;
   left: 1rem;
   right: 1rem;
   bottom: 1rem;
@@ -309,6 +338,13 @@ h1 {
   color: #ffffff;
   background: rgba(39, 23, 45, 0.82);
   backdrop-filter: blur(10px);
+}
+
+.hero-image-request {
+  position: absolute;
+  z-index: 2;
+  top: 1rem;
+  right: 1rem;
 }
 
 .hero-product-note span {
@@ -377,6 +413,7 @@ h1 {
 
 .creation-grid {
   display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
   gap: 0.9rem;
 }
 
@@ -593,6 +630,17 @@ h1 {
   margin-top: 1.25rem;
 }
 
+.business-card-panel {
+  margin-top: clamp(2rem, 5vw, 3.5rem);
+}
+
+.business-card-image {
+  width: min(100%, 58rem);
+  margin: 0 auto;
+  border-radius: 8px;
+  box-shadow: 0 18px 42px rgba(39, 23, 45, 0.18);
+}
+
 .contact-card {
   display: grid;
   gap: 0.3rem;
@@ -619,7 +667,7 @@ h1 {
   gap: 1rem;
   padding: 2rem max(1rem, calc((100vw - 1280px) / 2)) 6rem;
   color: #ffffff;
-  background: #27172d;
+  background: var(--footer-bg);
 }
 
 .site-footer h2 {
@@ -1086,10 +1134,6 @@ h1 {
     grid-template-columns: repeat(2, minmax(0, max-content));
   }
 
-  .creation-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
   .contact-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
@@ -1176,10 +1220,6 @@ h1 {
 }
 
 @media (min-width: 980px) {
-  .creation-grid {
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-  }
-
   .contact-grid {
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
@@ -1192,12 +1232,6 @@ h1 {
     justify-content: center;
     margin-inline: 0;
     padding-inline: 0;
-  }
-}
-
-@media (min-width: 1180px) {
-  .creation-grid {
-    grid-template-columns: repeat(6, minmax(0, 1fr));
   }
 }
 
