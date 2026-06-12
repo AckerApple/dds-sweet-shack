@@ -1,15 +1,20 @@
 [
   {
     "productCode": "482243821_631436592970354_2711077966964626360_n",
-    "title": "Blue Number Cake",
+    "title": "Number Cake",
     "category": "Cakes",
-    "description": "A custom number cake decorated with blue piping, white flowers, and pearl accents for milestone celebrations.",
+    "description": "A custom number cake decorated with blue buttercream icing, white flowers, and pearl accents for milestone celebrations.",
     "imageName": "482243821_631436592970354_2711077966964626360_n.jpg",
     "imagePath": "/assets/creations/product_images/482243821_631436592970354_2711077966964626360_n.jpg",
-    "altText": "Blue custom number cake with white flowers and pearl accents.",
+    "altText": "Custom number cake with white flowers and pearl accents.",
     "suggestedUnit": "cake",
-    "tags": ["number cake", "custom cake", "birthday cake", "blue frosting"],
-    "updatedAt": "2026-06-08T00:00:00.000Z",
+    "tags": [
+      "number cake",
+      "custom cake",
+      "birthday cake",
+      "blue frosting"
+    ],
+    "updatedAt": "2026-06-12T16:41:26.540Z",
     "featured": true
   },
   {
@@ -21,34 +26,48 @@
     "imagePath": "/assets/creations/product_images/484170766_636223232491690_4204148292118588959_n.png",
     "altText": "Colorful dinosaur-themed birthday cake.",
     "suggestedUnit": "cake",
-    "tags": ["birthday cake", "dinosaur theme", "custom cake", "kids parties"],
+    "tags": [
+      "birthday cake",
+      "dinosaur theme",
+      "custom cake",
+      "kids parties"
+    ],
     "updatedAt": "2026-06-08T00:00:00.000Z",
     "featured": true
   },
   {
     "productCode": "486024185_640089835438363_2368594528141415215_n",
-    "title": "Heart Mini Cake Favors",
+    "title": "Heart Mini Cakes",
     "category": "Party Favors",
     "description": "Packaged heart-shaped mini cakes with piped frosting, decorative details, and thank-you labels for events.",
     "imageName": "486024185_640089835438363_2368594528141415215_n.jpg",
     "imagePath": "/assets/creations/product_images/486024185_640089835438363_2368594528141415215_n.jpg",
     "altText": "Packaged heart-shaped mini cakes with thank-you labels.",
     "suggestedUnit": "each",
-    "tags": ["mini cakes", "party favors", "thank you gifts", "events"],
-    "updatedAt": "2026-06-08T00:00:00.000Z",
+    "tags": [
+      "mini cakes",
+      "party favors",
+      "thank you gifts",
+      "events"
+    ],
+    "updatedAt": "2026-06-12T16:41:54.188Z",
     "featured": true
   },
   {
     "productCode": "586336870_832549526192392_2008758686757940060_n",
-    "title": "Red Velvet Cake Jar",
+    "title": "Red Velvet Jar Cake",
     "category": "Treats",
-    "description": "Layered red velvet cake jar with cream frosting, cake crumble, and chopped pecan garnish.",
+    "description": "Layered red velvet cake jar with buttercream frosting, cake crumble, and chopped pecan garnish.",
     "imageName": "586336870_832549526192392_2008758686757940060_n.jpg",
     "imagePath": "/assets/creations/product_images/586336870_832549526192392_2008758686757940060_n.jpg",
     "altText": "Red velvet cake jar with cream frosting and pecans.",
     "suggestedUnit": "jar",
-    "tags": ["cake jar", "red velvet", "individual treats"],
-    "updatedAt": "2026-06-08T00:00:00.000Z",
+    "tags": [
+      "cake jar",
+      "red velvet",
+      "individual treats"
+    ],
+    "updatedAt": "2026-06-12T16:43:07.510Z",
     "featured": true
   },
   {
@@ -59,45 +78,542 @@
     "imageName": "592392762_838777562236255_4835380207356985185_n.jpg",
     "imagePath": "/assets/creations/product_images/592392762_838777562236255_4835380207356985185_n.jpg",
     "altText": "Chocolate cupcakes with green, orange, and white frosting.",
-    "suggestedUnit": "cupcake",
-    "tags": ["cupcakes", "custom colors", "party treats"],
-    "updatedAt": "2026-06-08T00:00:00.000Z",
+    "suggestedUnit": "dozen",
+    "tags": [
+      "cupcakes",
+      "custom colors",
+      "party treats"
+    ],
+    "updatedAt": "2026-06-12T16:45:11.096Z",
     "featured": true
   },
   {
     "productCode": "592457146_838777705569574_2073945322258838433_n",
-    "title": "Candy Chocolate Bark",
+    "title": "Candy Chocolate Toffee Bark",
     "category": "Treats",
     "description": "Chocolate bark pieces layered over crackers and topped with colorful candy pieces.",
     "imageName": "592457146_838777705569574_2073945322258838433_n.jpg",
     "imagePath": "/assets/creations/product_images/592457146_838777705569574_2073945322258838433_n.jpg",
     "altText": "Chocolate bark pieces topped with colorful candy.",
-    "suggestedUnit": "piece",
-    "tags": ["chocolate bark", "candy", "party trays"],
-    "updatedAt": "2026-06-08T00:00:00.000Z"
+    "suggestedUnit": "pound",
+    "tags": [
+      "chocolate bark",
+      "candy",
+      "party trays"
+    ],
+    "updatedAt": "2026-06-12T16:43:45.409Z"
   },
   {
     "productCode": "608868952_863957963051548_2974384855038886294_n",
-    "title": "Peppermint Chocolate Bark",
+    "title": "Peppermint Bark",
     "category": "Seasonal",
     "description": "Holiday chocolate bark with milk and white chocolate swirls and crushed peppermint candy.",
     "imageName": "608868952_863957963051548_2974384855038886294_n.jpg",
     "imagePath": "/assets/creations/product_images/608868952_863957963051548_2974384855038886294_n.jpg",
-    "altText": "Peppermint chocolate bark in a holiday tray.",
-    "suggestedUnit": "piece",
-    "tags": ["peppermint", "chocolate bark", "holiday treats", "seasonal"],
-    "updatedAt": "2026-06-08T00:00:00.000Z"
+    "altText": "Peppermint bark in a holiday tray.",
+    "suggestedUnit": "pound",
+    "tags": [
+      "peppermint",
+      "chocolate bark",
+      "holiday treats",
+      "seasonal"
+    ],
+    "updatedAt": "2026-06-12T16:44:15.196Z"
   },
   {
     "productCode": "608939033_863958729718138_3990364284028736931_n",
-    "title": "Caramel Cream Cupcake Bites",
+    "title": "Apple Pie Cupcakes",
     "category": "Cupcakes",
     "description": "Mini cupcake-style bites topped with caramel drizzle and piped cream frosting.",
     "imageName": "608939033_863958729718138_3990364284028736931_n.jpg",
     "imagePath": "/assets/creations/product_images/608939033_863958729718138_3990364284028736931_n.jpg",
     "altText": "Caramel cupcake bites with piped cream frosting.",
-    "suggestedUnit": "bite",
-    "tags": ["cupcakes", "caramel", "mini treats"],
-    "updatedAt": "2026-06-08T00:00:00.000Z"
+    "suggestedUnit": "dozen",
+    "tags": [
+      "cupcakes",
+      "caramel",
+      "mini treats"
+    ],
+    "updatedAt": "2026-06-12T16:44:50.712Z"
+  },
+  {
+    "productCode": "beach-themed-birthday-cake",
+    "title": "Beach Themed Birthday Cake",
+    "category": "Cakes",
+    "description": "A beach-themed birthday cake with ocean-inspired decorations for summer parties and custom celebrations.",
+    "imageName": "beach-themed-birthday-cake.jpg",
+    "imagePath": "/assets/creations/product_images/beach-themed-birthday-cake.jpg",
+    "altText": "Beach themed birthday cake with ocean-inspired decorations.",
+    "suggestedUnit": "cake",
+    "tags": [
+      "birthday cake",
+      "beach theme",
+      "custom cake",
+      "summer parties"
+    ],
+    "updatedAt": "2026-06-12T21:36:59.205Z",
+    "featured": true
+  },
+  {
+    "productCode": "best-bud-box",
+    "title": "Best Bud Treat Box",
+    "category": "Party Favors",
+    "description": "A giftable treat box arranged with decorated sweets for birthdays, friendship gifts, and party favors.",
+    "imageName": "best-bud-box.jpg",
+    "imagePath": "/assets/creations/product_images/best-bud-box.jpg",
+    "altText": "Decorated sweets arranged in a Best Bud treat box.",
+    "suggestedUnit": "box",
+    "tags": [
+      "treat box",
+      "party favors",
+      "gift box",
+      "decorated sweets"
+    ],
+    "updatedAt": "2026-06-12T21:36:59.205Z"
+  },
+  {
+    "productCode": "blondie-brownies",
+    "title": "Blondie Brownies",
+    "category": "Treats",
+    "description": "Rich blondie brownie squares with a golden crumb and sweet bakery-style finish.",
+    "imageName": "blondie-brownies.jpg",
+    "imagePath": "/assets/creations/product_images/blondie-brownies.jpg",
+    "altText": "Golden blondie brownie squares.",
+    "suggestedUnit": "dozen",
+    "tags": [
+      "brownies",
+      "blondies",
+      "dessert bars"
+    ],
+    "updatedAt": "2026-06-12T21:36:59.205Z"
+  },
+  {
+    "productCode": "burn-cake",
+    "title": "Burn Cake",
+    "category": "Cakes",
+    "description": "A custom burn-away style cake designed for reveal moments, photos, and celebration surprises.",
+    "imageName": "burn-cake.jpg",
+    "imagePath": "/assets/creations/product_images/burn-cake.jpg",
+    "altText": "Custom burn-away reveal cake.",
+    "suggestedUnit": "cake",
+    "tags": [
+      "burn cake",
+      "custom cake",
+      "reveal cake",
+      "celebration cake"
+    ],
+    "updatedAt": "2026-06-12T21:36:59.205Z",
+    "featured": true
+  },
+  {
+    "productCode": "burn-cake-19",
+    "title": "Burn Cake Design 19",
+    "category": "Cakes",
+    "description": "A custom burn-away cake variation with decorated icing for reveal moments and special occasions.",
+    "imageName": "burn-cake-19.jpg",
+    "imagePath": "/assets/creations/product_images/burn-cake-19.jpg",
+    "altText": "Burn-away cake design with decorated icing.",
+    "suggestedUnit": "cake",
+    "tags": [
+      "burn cake",
+      "custom cake",
+      "reveal cake"
+    ],
+    "updatedAt": "2026-06-12T21:36:59.205Z"
+  },
+  {
+    "productCode": "burn-cake-20",
+    "title": "Burn Cake Design 20",
+    "category": "Cakes",
+    "description": "A custom burn-away cake variation prepared for personalized messages, reveals, and party centerpieces.",
+    "imageName": "burn-cake-20.jpg",
+    "imagePath": "/assets/creations/product_images/burn-cake-20.jpg",
+    "altText": "Personalized burn-away cake design.",
+    "suggestedUnit": "cake",
+    "tags": [
+      "burn cake",
+      "custom cake",
+      "party cake"
+    ],
+    "updatedAt": "2026-06-12T21:36:59.205Z"
+  },
+  {
+    "productCode": "burn-cake-7",
+    "title": "Burn Cake Design 7",
+    "category": "Cakes",
+    "description": "A decorated burn-away cake option for birthdays, announcements, and surprise celebrations.",
+    "imageName": "burn-cake-7.jpg",
+    "imagePath": "/assets/creations/product_images/burn-cake-7.jpg",
+    "altText": "Decorated burn-away cake option.",
+    "suggestedUnit": "cake",
+    "tags": [
+      "burn cake",
+      "custom cake",
+      "birthday cake"
+    ],
+    "updatedAt": "2026-06-12T21:36:59.205Z"
+  },
+  {
+    "productCode": "butterbeer-cookies",
+    "title": "Butterbeer Cookies",
+    "category": "Cookies",
+    "description": "Soft butterbeer-inspired cookies with a sweet frosted finish for themed dessert trays.",
+    "imageName": "butterbeer-cookies.jpg",
+    "imagePath": "/assets/creations/product_images/butterbeer-cookies.jpg",
+    "altText": "Butterbeer-inspired cookies with frosting.",
+    "suggestedUnit": "dozen",
+    "tags": [
+      "cookies",
+      "butterbeer",
+      "themed treats"
+    ],
+    "updatedAt": "2026-06-12T21:36:59.205Z"
+  },
+  {
+    "productCode": "buttery-pecan-snowballs",
+    "title": "Buttery Pecan Snowballs",
+    "category": "Cookies",
+    "description": "Powdered sugar pecan snowball cookies with a buttery bite for holiday trays and dessert boxes.",
+    "imageName": "buttery-pecan-snowballs.jpg",
+    "imagePath": "/assets/creations/product_images/buttery-pecan-snowballs.jpg",
+    "altText": "Powdered pecan snowball cookies.",
+    "suggestedUnit": "dozen",
+    "tags": [
+      "cookies",
+      "pecan",
+      "holiday treats",
+      "snowballs"
+    ],
+    "updatedAt": "2026-06-12T21:36:59.205Z"
+  },
+  {
+    "productCode": "cakepops",
+    "title": "Cake Pops",
+    "category": "Party Favors",
+    "description": "Decorated cake pops served on sticks for party favors, dessert tables, and custom events.",
+    "imageName": "cakepops.jpg",
+    "imagePath": "/assets/creations/product_images/cakepops.jpg",
+    "altText": "Decorated cake pops on sticks.",
+    "suggestedUnit": "dozen",
+    "tags": [
+      "cake pops",
+      "party favors",
+      "dessert table"
+    ],
+    "updatedAt": "2026-06-12T21:36:59.205Z",
+    "featured": true
+  },
+  {
+    "productCode": "caramel-apple-cupcake",
+    "title": "Caramel Apple Cupcake",
+    "category": "Cupcakes",
+    "description": "Apple-inspired cupcakes topped with caramel-style drizzle and piped frosting.",
+    "imageName": "caramel-apple-cupcake.jpg",
+    "imagePath": "/assets/creations/product_images/caramel-apple-cupcake.jpg",
+    "altText": "Caramel apple cupcake with piped frosting.",
+    "suggestedUnit": "dozen",
+    "tags": [
+      "cupcakes",
+      "caramel apple",
+      "fall treats"
+    ],
+    "updatedAt": "2026-06-12T21:36:59.205Z"
+  },
+  {
+    "productCode": "chewy-bread",
+    "title": "Chewy Bread",
+    "category": "Breads",
+    "description": "A homestyle sweet bread loaf with a chewy texture for breakfast, gifting, or dessert tables.",
+    "imageName": "chewy-bread.jpg",
+    "imagePath": "/assets/creations/product_images/chewy-bread.jpg",
+    "altText": "Homestyle chewy sweet bread loaf.",
+    "suggestedUnit": "loaf",
+    "tags": [
+      "bread",
+      "sweet bread",
+      "homestyle"
+    ],
+    "updatedAt": "2026-06-12T21:36:59.205Z"
+  },
+  {
+    "productCode": "chocolate-bourbon-cupcake",
+    "title": "Chocolate Bourbon Cupcakes",
+    "category": "Cupcakes",
+    "description": "Chocolate cupcakes with bourbon-inspired flavor and bakery-style piped frosting.",
+    "imageName": "chocolate-bourbon-cupcake.jpg",
+    "imagePath": "/assets/creations/product_images/chocolate-bourbon-cupcake.jpg",
+    "altText": "Chocolate bourbon cupcakes with piped frosting.",
+    "suggestedUnit": "dozen",
+    "tags": [
+      "cupcakes",
+      "chocolate",
+      "bourbon flavor"
+    ],
+    "updatedAt": "2026-06-12T21:36:59.205Z"
+  },
+  {
+    "productCode": "chocolate-covered-oreos",
+    "title": "Chocolate Covered Oreos",
+    "category": "Party Favors",
+    "description": "Decorated chocolate-covered sandwich cookies finished for party trays, favors, and themed dessert boxes.",
+    "imageName": "chocolate-covered-oreos.jpg",
+    "imagePath": "/assets/creations/product_images/chocolate-covered-oreos.jpg",
+    "altText": "Decorated chocolate-covered sandwich cookies.",
+    "suggestedUnit": "dozen",
+    "tags": [
+      "chocolate covered oreos",
+      "party favors",
+      "decorated cookies"
+    ],
+    "updatedAt": "2026-06-12T21:36:59.205Z",
+    "featured": true
+  },
+  {
+    "productCode": "chocolate-covered-strawberries",
+    "title": "Chocolate Covered Strawberries",
+    "category": "Treats",
+    "description": "Fresh strawberries dipped in chocolate and decorated for gifts, parties, and dessert trays.",
+    "imageName": "chocolate-covered-strawberries.jpg",
+    "imagePath": "/assets/creations/product_images/chocolate-covered-strawberries.jpg",
+    "altText": "Chocolate-covered strawberries with decorative drizzle.",
+    "suggestedUnit": "dozen",
+    "tags": [
+      "strawberries",
+      "chocolate dipped",
+      "party trays"
+    ],
+    "updatedAt": "2026-06-12T21:36:59.205Z",
+    "featured": true
+  },
+  {
+    "productCode": "chocolate-dream-cake",
+    "title": "Chocolate Dream Cake",
+    "category": "Cakes",
+    "description": "A chocolate celebration cake with rich frosting and decorative toppings for chocolate lovers.",
+    "imageName": "chocolate-dream-cake.jpg",
+    "imagePath": "/assets/creations/product_images/chocolate-dream-cake.jpg",
+    "altText": "Chocolate celebration cake with rich frosting.",
+    "suggestedUnit": "cake",
+    "tags": [
+      "chocolate cake",
+      "custom cake",
+      "celebration cake"
+    ],
+    "updatedAt": "2026-06-12T21:36:59.205Z",
+    "featured": true
+  },
+  {
+    "productCode": "chocolate-macadamia-cookies",
+    "title": "Chocolate Macadamia Cookies",
+    "category": "Cookies",
+    "description": "Chocolate cookies with macadamia-style mix-ins for cookie trays and gift boxes.",
+    "imageName": "chocolate-macadamia-cookies.jpg",
+    "imagePath": "/assets/creations/product_images/chocolate-macadamia-cookies.jpg",
+    "altText": "Chocolate macadamia cookies arranged together.",
+    "suggestedUnit": "dozen",
+    "tags": [
+      "cookies",
+      "chocolate",
+      "macadamia"
+    ],
+    "updatedAt": "2026-06-12T21:36:59.205Z"
+  },
+  {
+    "productCode": "cornflake-candy",
+    "title": "Cornflake Candy",
+    "category": "Treats",
+    "description": "Crunchy cornflake candy clusters for holiday tins, dessert trays, and sweet snack boxes.",
+    "imageName": "cornflake-candy.jpg",
+    "imagePath": "/assets/creations/product_images/cornflake-candy.jpg",
+    "altText": "Cornflake candy clusters.",
+    "suggestedUnit": "pound",
+    "tags": [
+      "cornflake candy",
+      "candy",
+      "holiday treats"
+    ],
+    "updatedAt": "2026-06-12T21:36:59.205Z"
+  },
+  {
+    "productCode": "cupcakes",
+    "title": "Classic Cupcakes",
+    "category": "Cupcakes",
+    "description": "Classic frosted cupcakes ready for birthdays, parties, and mixed dessert displays.",
+    "imageName": "cupcakes.jpg",
+    "imagePath": "/assets/creations/product_images/cupcakes.jpg",
+    "altText": "Classic frosted cupcakes arranged together.",
+    "suggestedUnit": "dozen",
+    "tags": [
+      "cupcakes",
+      "party treats",
+      "frosted cupcakes"
+    ],
+    "updatedAt": "2026-06-12T21:36:59.205Z"
+  },
+  {
+    "productCode": "dinosaur-cupcakes",
+    "title": "Dinosaur Cupcakes",
+    "category": "Cupcakes",
+    "description": "Dinosaur-themed cupcakes with playful decorations for kids birthdays and themed parties.",
+    "imageName": "dinosaur-cupcakes.jpg",
+    "imagePath": "/assets/creations/product_images/dinosaur-cupcakes.jpg",
+    "altText": "Dinosaur-themed cupcakes with playful decorations.",
+    "suggestedUnit": "dozen",
+    "tags": [
+      "cupcakes",
+      "dinosaur theme",
+      "kids parties"
+    ],
+    "updatedAt": "2026-06-12T21:36:59.205Z",
+    "featured": true
+  },
+  {
+    "productCode": "edible-image-cakes",
+    "title": "Edible Image Cakes",
+    "category": "Cakes",
+    "description": "Custom cakes topped with edible printed images for birthdays, teams, logos, and personalized events.",
+    "imageName": "edible-image-cakes.jpg",
+    "imagePath": "/assets/creations/product_images/edible-image-cakes.jpg",
+    "altText": "Custom cakes with edible printed images.",
+    "suggestedUnit": "cake",
+    "tags": [
+      "edible image cake",
+      "custom cake",
+      "personalized cake"
+    ],
+    "updatedAt": "2026-06-12T21:36:59.205Z"
+  },
+  {
+    "productCode": "elmo-themed-birthday-cake",
+    "title": "Elmo Themed Birthday Cake",
+    "category": "Cakes",
+    "description": "A custom Elmo-themed birthday cake decorated for kids parties and character celebrations.",
+    "imageName": "elmo-themed-birthday-cake.jpg",
+    "imagePath": "/assets/creations/product_images/elmo-themed-birthday-cake.jpg",
+    "altText": "Elmo-themed birthday cake.",
+    "suggestedUnit": "cake",
+    "tags": [
+      "birthday cake",
+      "character cake",
+      "kids parties"
+    ],
+    "updatedAt": "2026-06-12T21:36:59.205Z",
+    "featured": true
+  },
+  {
+    "productCode": "gender-reveal-packages",
+    "title": "Gender Reveal Packages",
+    "category": "Party Favors",
+    "description": "Coordinated gender reveal dessert packages with decorated treats for announcement celebrations.",
+    "imageName": "gender-reveal-packages.jpg",
+    "imagePath": "/assets/creations/product_images/gender-reveal-packages.jpg",
+    "altText": "Gender reveal dessert package with decorated treats.",
+    "suggestedUnit": "package",
+    "tags": [
+      "gender reveal",
+      "party package",
+      "custom treats"
+    ],
+    "updatedAt": "2026-06-12T21:36:59.205Z"
+  },
+  {
+    "productCode": "graduation-sugar-cookies",
+    "title": "Graduation Sugar Cookies",
+    "category": "Cookies",
+    "description": "Graduation-themed sugar cookies decorated for school celebrations, dessert trays, and party favors.",
+    "imageName": "graduation-sugar-cookies.jpg",
+    "imagePath": "/assets/creations/product_images/graduation-sugar-cookies.jpg",
+    "altText": "Graduation-themed decorated sugar cookies.",
+    "suggestedUnit": "dozen",
+    "tags": [
+      "graduation",
+      "sugar cookies",
+      "party favors"
+    ],
+    "updatedAt": "2026-06-12T21:39:42.056Z"
+  },
+  {
+    "productCode": "jar-cake",
+    "title": "Jar Cake",
+    "category": "Treats",
+    "description": "Layered cake served in a jar for individual desserts, party favors, and grab-and-go treats.",
+    "imageName": "jar-cake.jpg",
+    "imagePath": "/assets/creations/product_images/jar-cake.jpg",
+    "altText": "Layered cake in a jar.",
+    "suggestedUnit": "jar",
+    "tags": [
+      "cake jar",
+      "individual treats",
+      "party favors"
+    ],
+    "updatedAt": "2026-06-12T21:36:59.205Z"
+  },
+  {
+    "productCode": "sugar-cookies",
+    "title": "Decorated Sugar Cookies",
+    "category": "Cookies",
+    "description": "Decorated sugar cookies with custom icing details for parties, holidays, and themed dessert tables.",
+    "imageName": "sugar-cookies.jpg",
+    "imagePath": "/assets/creations/product_images/sugar-cookies.jpg",
+    "altText": "Decorated sugar cookies with custom icing.",
+    "suggestedUnit": "dozen",
+    "tags": [
+      "sugar cookies",
+      "decorated cookies",
+      "custom cookies"
+    ],
+    "updatedAt": "2026-06-12T21:39:42.056Z",
+    "featured": true
+  },
+  {
+    "productCode": "sugar-cookies-1",
+    "title": "Custom Sugar Cookies",
+    "category": "Cookies",
+    "description": "Custom iced sugar cookies in assorted shapes and colors for birthdays, showers, and event favors.",
+    "imageName": "sugar-cookies-1.jpg",
+    "imagePath": "/assets/creations/product_images/sugar-cookies-1.jpg",
+    "altText": "Custom iced sugar cookies in assorted shapes.",
+    "suggestedUnit": "dozen",
+    "tags": [
+      "sugar cookies",
+      "custom cookies",
+      "party favors"
+    ],
+    "updatedAt": "2026-06-12T21:39:42.056Z"
+  },
+  {
+    "productCode": "valentines-cupcake",
+    "title": "Valentine Cupcakes",
+    "category": "Cupcakes",
+    "description": "Valentine-themed cupcakes with piped frosting and festive decorations for gifts and dessert boxes.",
+    "imageName": "valentines-cupcake.jpg",
+    "imagePath": "/assets/creations/product_images/valentines-cupcake.jpg",
+    "altText": "Valentine-themed cupcakes with festive frosting.",
+    "suggestedUnit": "dozen",
+    "tags": [
+      "cupcakes",
+      "valentines day",
+      "holiday treats"
+    ],
+    "updatedAt": "2026-06-12T21:36:59.205Z",
+    "featured": true
+  },
+  {
+    "productCode": "variety-box",
+    "title": "Variety Treat Box",
+    "category": "Party Favors",
+    "description": "A mixed dessert box with assorted sweets for gifting, parties, and sampling multiple flavors.",
+    "imageName": "variety-box.jpg",
+    "imagePath": "/assets/creations/product_images/variety-box.jpg",
+    "altText": "Assorted sweets arranged in a variety treat box.",
+    "suggestedUnit": "box",
+    "tags": [
+      "variety box",
+      "treat box",
+      "party favors",
+      "gift box"
+    ],
+    "updatedAt": "2026-06-12T21:39:42.056Z",
+    "featured": true
   }
 ]

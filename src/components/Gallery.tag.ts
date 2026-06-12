@@ -1,4 +1,4 @@
-import { button, div, h3, p, section, span, tag } from "taggedjs";
+import { a, button, div, h3, p, section, tag } from "taggedjs";
 import { ProductRequestButton } from "./ProductActions.tag.js";
 import { creationCategories, creations, type CreationCategory, type CreationItem } from "../data/creations.js";
 
@@ -19,6 +19,9 @@ const imageStack = (creation: CreationItem) => {
     .map((path) => `url("${assetPath(path as string).replace(/"/g, "%22")}")`);
   return `background-image: ${urls.join(", ")};`;
 };
+
+const productDetailsHref = (creation: CreationItem) =>
+  `${import.meta.env.BASE_URL}product-details.html?product=${encodeURIComponent(creation.productCode || creation.id)}`;
 
 const visibleCreations = (selectedCategory: CreationCategory | "All") =>
   selectedCategory === "All"
@@ -48,23 +51,22 @@ export const Gallery = tag((input: GalleryOptions) => {
     div.class`creation-grid`(
       () => visibleCreations(props.selectedCategory).map((creation) =>
         div.class`creation-card`(
-          div
-            .class`creation-image-wrap creation-image`
-            .style(imageStack(creation))
-            .attr("role", "img")
-            .attr("aria-label", `View details for ${creation.title}`)(
-              div.class`creation-image-action`(
-                () => ProductRequestButton({
-                  creation,
-                  onRequest: props.onRequest,
-                  className: "primary-button card-button",
-                })
-              )
-            ),
+          div.class`creation-image-wrap`(
+            a
+              .class`creation-image`
+              .href(productDetailsHref(creation))
+              .style(imageStack(creation))
+              .attr("aria-label", `View details for ${creation.title}`)(),
+            div.class`creation-image-action`(
+              () => ProductRequestButton({
+                creation,
+                onRequest: props.onRequest,
+                className: "primary-button card-button",
+              })
+            )
+          ),
           div.class`creation-body`(
-            span.class`category-label`(creation.category),
-            h3(creation.title),
-            p(creation.description)
+            h3(creation.title)
           )
         )
       )

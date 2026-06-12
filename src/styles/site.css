@@ -437,6 +437,12 @@ h1 {
   height: 100%;
   background-position: center;
   background-size: cover;
+  cursor: pointer;
+}
+
+.creation-image:focus-visible {
+  outline: 3px solid var(--blue);
+  outline-offset: -3px;
 }
 
 .creation-image-action {
@@ -444,6 +450,7 @@ h1 {
   left: 0.75rem;
   right: 0.75rem;
   bottom: 0.75rem;
+  z-index: 1;
 }
 
 .creation-body {
