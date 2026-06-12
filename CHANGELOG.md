@@ -1,5 +1,97 @@
 # Changelog
 
+## v1.5.0 - 2026-06-12
+
+Gallery filter and cake category follow-up updates.
+
+### Added
+
+- Added a Cake type dropdown with `All Cakes`, `Traditional`, `Burn Cakes`, and `Jar Cakes` options.
+- Added pagination below the gallery so the `All` view can stay available without showing every product at once.
+
+### Changed
+
+- Kept the homepage gallery starting on `All`, limited to one page of products at a time.
+- Moved the `All` category filter to the end of the category row.
+- Reclassified `Chewy Bread` as `Chewy Brownies` under `Treats`, removing the unused `Breads` category.
+- Corrected product descriptions for caramel apple cupcakes, cake pops, and apple pie cupcakes.
+- Fixed Cake subcategory filtering so burn cakes and jar cakes can be viewed separately.
+- Fixed gallery pagination by adding stable TaggedJS keys to mapped filter, dropdown, and product-card items.
+- Rotated the SpongeBob burn cake photo so the design faces the correct direction.
+
+### Verified
+
+- Ran `npm run build`.
+
+## v1.4.0 - 2026-06-12
+
+Product catalog expansion and gallery card cleanup.
+
+### Added
+
+- Added 29 new product photos across cakes, cupcakes, cookies, treats, party favors, and seasonal items.
+- Expanded `products.json` to 37 catalog products with titles, categories, descriptions, tags, alt text, and featured-product metadata.
+- Added `products_v1.json` as a backup of the previous product catalog.
+
+### Changed
+
+- Changed gallery product images into direct links to each product details page.
+- Simplified gallery cards by removing category labels and descriptions from the card body, leaving the product title below each image.
+- Kept the gallery `I Want This` action overlaid on product images while preserving clickable details links.
+- Added keyboard focus styling for clickable gallery images.
+
+## v1.3.0 - 2026-06-11
+
+Contact page, home hero, and pre-launch polish updates.
+
+### Added
+
+- Added the DD's Sweet Shack business card image to the bottom of the contact page.
+- Added a purple page background behind the footer so short pages no longer show white space below the footer.
+- Added a fast 0.75 second crossfade between rotating home hero product images.
+
+### Changed
+
+- Changed the Facebook URL from a search link to `https://www.facebook.com/DDsSweetShack`.
+- Removed the website card from the contact page because visitors are already on the website.
+- Removed unneeded `Contact`, `Creations`, and `Custom Orders` section kicker badges.
+- Changed the home gallery grid so product cards keep a 300px minimum width when space allows.
+- Fixed the home hero rotation so the image, product title/link, and `I Want This` action all stay synced to the current product.
+- Moved the home hero `I Want This` action from the contact-action button group onto the rotating product image.
+
+### Verified
+
+- Ran `npm run build`.
+- Browser-checked the contact page business card, Facebook link, removed website card, and footer background behavior.
+- Browser-checked the home hero rotation, fade layer, product details link, and image-overlay `I Want This` modal target.
+- Browser-checked the home gallery card width at desktop, tablet, and mobile widths.
+
+## v1.2.0 - 2026-06-08
+
+Admin product editing and product request UX updates.
+
+### Added
+
+- Added hidden `/admin-products.html` for editing existing product catalog records in browser local storage.
+- Added `updatedAt` timestamps to product catalog records.
+- Added local draft conflict handling so newer catalog data overrides stale browser edits, while newer local edits show as `Publish ready`.
+- Added free-mode admin save guidance that downloads `products.json` and directs the user to email it to `acker.dawn.apple@gmail.com`.
+- Added a shared product request button component for product request CTAs.
+- Added floating `I Want This` buttons over home gallery product images.
+- Added product thumbnails and product detail links inside order request item rows.
+
+### Changed
+
+- Changed the admin product editor to edit existing records only; the `Add Product` action now explains the free-mode limitation.
+- Changed admin update badges from raw ISO timestamps to relative changed-time labels.
+- Changed the shared logo link to return to the public homepage from every page, including admin.
+- Changed order request item rows to hide shopper-facing product codes and show product titles instead of product selection dropdowns.
+- Removed the admin `Copy JSON` action in favor of the guided save/download flow.
+
+### Verified
+
+- Ran `npm run build`.
+
 ## v1.1.0 - 2026-06-03
 
 Product-photo catalog, order-detail links, and launch polish updates.
