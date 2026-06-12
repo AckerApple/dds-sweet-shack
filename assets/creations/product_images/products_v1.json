@@ -1,0 +1,103 @@
+[
+  {
+    "productCode": "482243821_631436592970354_2711077966964626360_n",
+    "title": "Blue Number Cake",
+    "category": "Cakes",
+    "description": "A custom number cake decorated with blue piping, white flowers, and pearl accents for milestone celebrations.",
+    "imageName": "482243821_631436592970354_2711077966964626360_n.jpg",
+    "imagePath": "/assets/creations/product_images/482243821_631436592970354_2711077966964626360_n.jpg",
+    "altText": "Blue custom number cake with white flowers and pearl accents.",
+    "suggestedUnit": "cake",
+    "tags": ["number cake", "custom cake", "birthday cake", "blue frosting"],
+    "updatedAt": "2026-06-08T00:00:00.000Z",
+    "featured": true
+  },
+  {
+    "productCode": "484170766_636223232491690_4204148292118588959_n",
+    "title": "Dinosaur Birthday Cake",
+    "category": "Cakes",
+    "description": "A colorful dinosaur-themed birthday cake with playful decorations for parties and photo-ready celebrations.",
+    "imageName": "484170766_636223232491690_4204148292118588959_n.png",
+    "imagePath": "/assets/creations/product_images/484170766_636223232491690_4204148292118588959_n.png",
+    "altText": "Colorful dinosaur-themed birthday cake.",
+    "suggestedUnit": "cake",
+    "tags": ["birthday cake", "dinosaur theme", "custom cake", "kids parties"],
+    "updatedAt": "2026-06-08T00:00:00.000Z",
+    "featured": true
+  },
+  {
+    "productCode": "486024185_640089835438363_2368594528141415215_n",
+    "title": "Heart Mini Cake Favors",
+    "category": "Party Favors",
+    "description": "Packaged heart-shaped mini cakes with piped frosting, decorative details, and thank-you labels for events.",
+    "imageName": "486024185_640089835438363_2368594528141415215_n.jpg",
+    "imagePath": "/assets/creations/product_images/486024185_640089835438363_2368594528141415215_n.jpg",
+    "altText": "Packaged heart-shaped mini cakes with thank-you labels.",
+    "suggestedUnit": "each",
+    "tags": ["mini cakes", "party favors", "thank you gifts", "events"],
+    "updatedAt": "2026-06-08T00:00:00.000Z",
+    "featured": true
+  },
+  {
+    "productCode": "586336870_832549526192392_2008758686757940060_n",
+    "title": "Red Velvet Cake Jar",
+    "category": "Treats",
+    "description": "Layered red velvet cake jar with cream frosting, cake crumble, and chopped pecan garnish.",
+    "imageName": "586336870_832549526192392_2008758686757940060_n.jpg",
+    "imagePath": "/assets/creations/product_images/586336870_832549526192392_2008758686757940060_n.jpg",
+    "altText": "Red velvet cake jar with cream frosting and pecans.",
+    "suggestedUnit": "jar",
+    "tags": ["cake jar", "red velvet", "individual treats"],
+    "updatedAt": "2026-06-08T00:00:00.000Z",
+    "featured": true
+  },
+  {
+    "productCode": "592392762_838777562236255_4835380207356985185_n",
+    "title": "Custom Color Cupcakes",
+    "category": "Cupcakes",
+    "description": "Chocolate cupcakes with piped frosting in custom colors, finished with shimmer accents.",
+    "imageName": "592392762_838777562236255_4835380207356985185_n.jpg",
+    "imagePath": "/assets/creations/product_images/592392762_838777562236255_4835380207356985185_n.jpg",
+    "altText": "Chocolate cupcakes with green, orange, and white frosting.",
+    "suggestedUnit": "cupcake",
+    "tags": ["cupcakes", "custom colors", "party treats"],
+    "updatedAt": "2026-06-08T00:00:00.000Z",
+    "featured": true
+  },
+  {
+    "productCode": "592457146_838777705569574_2073945322258838433_n",
+    "title": "Candy Chocolate Bark",
+    "category": "Treats",
+    "description": "Chocolate bark pieces layered over crackers and topped with colorful candy pieces.",
+    "imageName": "592457146_838777705569574_2073945322258838433_n.jpg",
+    "imagePath": "/assets/creations/product_images/592457146_838777705569574_2073945322258838433_n.jpg",
+    "altText": "Chocolate bark pieces topped with colorful candy.",
+    "suggestedUnit": "piece",
+    "tags": ["chocolate bark", "candy", "party trays"],
+    "updatedAt": "2026-06-08T00:00:00.000Z"
+  },
+  {
+    "productCode": "608868952_863957963051548_2974384855038886294_n",
+    "title": "Peppermint Chocolate Bark",
+    "category": "Seasonal",
+    "description": "Holiday chocolate bark with milk and white chocolate swirls and crushed peppermint candy.",
+    "imageName": "608868952_863957963051548_2974384855038886294_n.jpg",
+    "imagePath": "/assets/creations/product_images/608868952_863957963051548_2974384855038886294_n.jpg",
+    "altText": "Peppermint chocolate bark in a holiday tray.",
+    "suggestedUnit": "piece",
+    "tags": ["peppermint", "chocolate bark", "holiday treats", "seasonal"],
+    "updatedAt": "2026-06-08T00:00:00.000Z"
+  },
+  {
+    "productCode": "608939033_863958729718138_3990364284028736931_n",
+    "title": "Caramel Cream Cupcake Bites",
+    "category": "Cupcakes",
+    "description": "Mini cupcake-style bites topped with caramel drizzle and piped cream frosting.",
+    "imageName": "608939033_863958729718138_3990364284028736931_n.jpg",
+    "imagePath": "/assets/creations/product_images/608939033_863958729718138_3990364284028736931_n.jpg",
+    "altText": "Caramel cupcake bites with piped cream frosting.",
+    "suggestedUnit": "bite",
+    "tags": ["cupcakes", "caramel", "mini treats"],
+    "updatedAt": "2026-06-08T00:00:00.000Z"
+  }
+]
