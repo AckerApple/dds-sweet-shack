@@ -124,15 +124,15 @@
     "productCode": "608939033_863958729718138_3990364284028736931_n",
     "title": "Apple Pie Cupcakes",
     "category": "Cupcakes",
-    "description": "Mini cupcake-style bites topped with caramel drizzle and piped cream frosting.",
+    "description": "Apple pie cupcakes topped with caramel drizzle and piped cinnamon buttercream frosting.",
     "imageName": "608939033_863958729718138_3990364284028736931_n.jpg",
     "imagePath": "/assets/creations/product_images/608939033_863958729718138_3990364284028736931_n.jpg",
-    "altText": "Caramel cupcake bites with piped cream frosting.",
+    "altText": "Apple pie cupcakes with caramel drizzle and cinnamon buttercream frosting.",
     "suggestedUnit": "dozen",
     "tags": [
       "cupcakes",
-      "caramel",
-      "mini treats"
+      "apple pie",
+      "cinnamon buttercream"
     ],
     "updatedAt": "2026-06-12T16:44:50.712Z"
   },
@@ -290,13 +290,13 @@
     "productCode": "cakepops",
     "title": "Cake Pops",
     "category": "Party Favors",
-    "description": "Decorated cake pops served on sticks for party favors, dessert tables, and custom events.",
+    "description": "Decorated cake push pops served in clear push-pop containers for party favors, dessert tables, and custom events.",
     "imageName": "cakepops.jpg",
     "imagePath": "/assets/creations/product_images/cakepops.jpg",
-    "altText": "Decorated cake pops on sticks.",
+    "altText": "Decorated cake push pops in clear containers.",
     "suggestedUnit": "dozen",
     "tags": [
-      "cake pops",
+      "cake push pops",
       "party favors",
       "dessert table"
     ],
@@ -307,10 +307,10 @@
     "productCode": "caramel-apple-cupcake",
     "title": "Caramel Apple Cupcake",
     "category": "Cupcakes",
-    "description": "Apple-inspired cupcakes topped with caramel-style drizzle and piped frosting.",
+    "description": "Apple-inspired cupcake with caramel-style drizzle and fall flavor details.",
     "imageName": "caramel-apple-cupcake.jpg",
     "imagePath": "/assets/creations/product_images/caramel-apple-cupcake.jpg",
-    "altText": "Caramel apple cupcake with piped frosting.",
+    "altText": "Caramel apple cupcake with caramel-style drizzle.",
     "suggestedUnit": "dozen",
     "tags": [
       "cupcakes",
@@ -321,17 +321,17 @@
   },
   {
     "productCode": "chewy-bread",
-    "title": "Chewy Bread",
-    "category": "Breads",
-    "description": "A homestyle sweet bread loaf with a chewy texture for breakfast, gifting, or dessert tables.",
+    "title": "Chewy Brownies",
+    "category": "Treats",
+    "description": "Chewy brownie-style dessert bars for gifting, dessert tables, or custom treat boxes.",
     "imageName": "chewy-bread.jpg",
     "imagePath": "/assets/creations/product_images/chewy-bread.jpg",
-    "altText": "Homestyle chewy sweet bread loaf.",
-    "suggestedUnit": "loaf",
+    "altText": "Chewy brownie-style dessert bars.",
+    "suggestedUnit": "dozen",
     "tags": [
-      "bread",
-      "sweet bread",
-      "homestyle"
+      "brownies",
+      "dessert bars",
+      "treat boxes"
     ],
     "updatedAt": "2026-06-12T21:36:59.205Z"
   },

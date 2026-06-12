@@ -1,5 +1,45 @@
 # Changelog
 
+## v1.5.0 - 2026-06-12
+
+Gallery filter and cake category follow-up updates.
+
+### Added
+
+- Added a Cake type dropdown with `All Cakes`, `Traditional`, `Burn Cakes`, and `Jar Cakes` options.
+- Added pagination below the gallery so the `All` view can stay available without showing every product at once.
+
+### Changed
+
+- Kept the homepage gallery starting on `All`, limited to one page of products at a time.
+- Moved the `All` category filter to the end of the category row.
+- Reclassified `Chewy Bread` as `Chewy Brownies` under `Treats`, removing the unused `Breads` category.
+- Corrected product descriptions for caramel apple cupcakes, cake pops, and apple pie cupcakes.
+- Fixed Cake subcategory filtering so burn cakes and jar cakes can be viewed separately.
+- Fixed gallery pagination by adding stable TaggedJS keys to mapped filter, dropdown, and product-card items.
+- Rotated the SpongeBob burn cake photo so the design faces the correct direction.
+
+### Verified
+
+- Ran `npm run build`.
+
+## v1.4.0 - 2026-06-12
+
+Product catalog expansion and gallery card cleanup.
+
+### Added
+
+- Added 29 new product photos across cakes, cupcakes, cookies, treats, party favors, and seasonal items.
+- Expanded `products.json` to 37 catalog products with titles, categories, descriptions, tags, alt text, and featured-product metadata.
+- Added `products_v1.json` as a backup of the previous product catalog.
+
+### Changed
+
+- Changed gallery product images into direct links to each product details page.
+- Simplified gallery cards by removing category labels and descriptions from the card body, leaving the product title below each image.
+- Kept the gallery `I Want This` action overlaid on product images while preserving clickable details links.
+- Added keyboard focus styling for clickable gallery images.
+
 ## v1.3.0 - 2026-06-11
 
 Contact page, home hero, and pre-launch polish updates.

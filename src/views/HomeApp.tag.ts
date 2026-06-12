@@ -1,6 +1,6 @@
 import { a, array, button, div, footer, h1, h2, main, p, section, span, subscribe, tag } from "taggedjs";
 import { Header } from "../components/Header.tag.js";
-import { Gallery } from "../components/Gallery.tag.js";
+import { Gallery, type CakeSubcategory } from "../components/Gallery.tag.js";
 import { OrderModal, emptyDraft, type OrderDraft } from "../components/OrderModal.tag.js";
 import { contact } from "../data/contact.js";
 import { creations, type CreationCategory, type CreationItem } from "../data/creations.js";
@@ -10,6 +10,8 @@ import { createMailtoHref, customOrderCreation, orderBody } from "../order-reque
 type AppState = {
   menuOpen: boolean;
   selectedCategory: CreationCategory | "All";
+  selectedCakeSubcategory: CakeSubcategory;
+  currentGalleryPage: number;
   selectedCreation: CreationItem | null;
   orderDraft: OrderDraft;
   copied: boolean;
@@ -20,6 +22,8 @@ type AppState = {
 const initialState: AppState = {
   menuOpen: false,
   selectedCategory: "All",
+  selectedCakeSubcategory: "All Cakes",
+  currentGalleryPage: 1,
   selectedCreation: null,
   orderDraft: emptyDraft(),
   copied: false,
@@ -215,7 +219,17 @@ export const HomeApp = tag(() => {
         }),
         () => Gallery({
           selectedCategory: state.selectedCategory,
-          onSelectCategory: (selectedCategory: CreationCategory | "All") => update({ selectedCategory }),
+          selectedCakeSubcategory: state.selectedCakeSubcategory,
+          currentPage: state.currentGalleryPage,
+          onSelectCategory: (selectedCategory: CreationCategory | "All") => update({
+            selectedCategory,
+            currentGalleryPage: 1,
+          }),
+          onSelectCakeSubcategory: (selectedCakeSubcategory: CakeSubcategory) => update({
+            selectedCakeSubcategory,
+            currentGalleryPage: 1,
+          }),
+          onSelectPage: (currentGalleryPage: number) => update({ currentGalleryPage }),
           onRequest: openRequest,
         }),
         CustomOrders(),

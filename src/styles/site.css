@@ -411,6 +411,30 @@ h1 {
   background: linear-gradient(135deg, var(--purple), var(--blue));
 }
 
+.subcategory-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.65rem;
+  margin: -0.35rem 0 1.1rem;
+}
+
+.subcategory-label {
+  color: var(--muted);
+  font-size: 0.92rem;
+  font-weight: 850;
+}
+
+.subcategory-select {
+  min-width: 12rem;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: #ffffff;
+  color: var(--ink);
+  font-weight: 850;
+  padding: 0.62rem 2.2rem 0.62rem 0.8rem;
+}
+
 .creation-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
@@ -470,6 +494,44 @@ h1 {
 
 .card-button {
   width: 100%;
+}
+
+.pagination-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  margin-top: 1.2rem;
+  flex-wrap: wrap;
+}
+
+.pagination-button {
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: #ffffff;
+  color: var(--ink);
+  cursor: pointer;
+  font-weight: 850;
+  min-width: 6.5rem;
+  padding: 0.68rem 1rem;
+}
+
+.pagination-button:not(:disabled):hover {
+  border-color: var(--pink);
+  color: var(--pink);
+}
+
+.pagination-button:disabled {
+  cursor: not-allowed;
+  opacity: 0.48;
+}
+
+.pagination-status {
+  color: var(--muted);
+  font-size: 0.94rem;
+  font-weight: 850;
+  min-width: 6.5rem;
+  text-align: center;
 }
 
 .custom-section {
