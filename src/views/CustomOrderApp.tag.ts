@@ -72,43 +72,43 @@ const MobileContactBar = () =>
     a.href(contact.emailHref)("Email")
   );
 
-export const CustomOrderApp = tag(() =>
-  subscribe(customOrderState$, ([state]) => [
-    Header({
-      menuOpen: state.menuOpen,
-      onToggleMenu: () => update({ menuOpen: !state.menuOpen }),
-      onCloseMenu: () => update({ menuOpen: false }),
-      orderQuantity: orderDraftQuantity(state.orderDraft),
-    }),
-    main.class`order-page-main`(
-      section.class`section order-page-section`(
-        div.class`section-heading`(
-          h1("Request something sweet"),
-          p("🎂 Share the treat type, event date, theme, colors, quantity, and any custom writing. DD's Sweet Shack will contact you to confirm details and pricing.")
-        ),
-        div.class`order-page-card`(
-          p.class`form-note`("💳 No payment is collected online. DD's Sweet Shack will contact you to confirm details and pricing."),
-          () => OrderRequestForm({
-            selectedCreation: customOrderCreation,
-            draft: state.orderDraft,
-            copied: state.copied,
-            showSelectedItem: false,
-            onDraftChange: <K extends keyof OrderDraft>(field: K, value: OrderDraft[K]) =>
-              {
-                const orderDraft = { ...getState().orderDraft, [field]: value };
-                saveOrderDraft(orderDraft);
-                update({
-                  orderDraft,
-                  copied: false,
-                });
-              },
-            onCreateEmail: createEmailRequest,
-            onCopy: copyOrderDetails,
-          })
-        )
+export const renderCustomOrderApp = (state: CustomOrderState = getState()) => [
+  Header({
+    menuOpen: state.menuOpen,
+    onToggleMenu: () => update({ menuOpen: !state.menuOpen }),
+    onCloseMenu: () => update({ menuOpen: false }),
+    orderQuantity: orderDraftQuantity(state.orderDraft),
+  }),
+  main.class`order-page-main`(
+    section.class`section order-page-section`(
+      div.class`section-heading`(
+        h1("Request something sweet"),
+        p("🎂 Share the treat type, event date, theme, colors, quantity, and any custom writing. DD's Sweet Shack will contact you to confirm details and pricing.")
+      ),
+      div.class`order-page-card`(
+        p.class`form-note`("💳 No payment is collected online. DD's Sweet Shack will contact you to confirm details and pricing."),
+        () => OrderRequestForm({
+          selectedCreation: customOrderCreation,
+          draft: state.orderDraft,
+          copied: state.copied,
+          showSelectedItem: false,
+          onDraftChange: <K extends keyof OrderDraft>(field: K, value: OrderDraft[K]) =>
+            {
+              const orderDraft = { ...getState().orderDraft, [field]: value };
+              saveOrderDraft(orderDraft);
+              update({
+                orderDraft,
+                copied: false,
+              });
+            },
+          onCreateEmail: createEmailRequest,
+          onCopy: copyOrderDetails,
+        })
       )
-    ),
-    SiteFooter(),
-    MobileContactBar(),
-  ])
-);
+    )
+  ),
+  SiteFooter(),
+  MobileContactBar(),
+];
+
+export const CustomOrderApp = tag(() => subscribe(customOrderState$, ([state]) => renderCustomOrderApp(state)));

@@ -38,39 +38,39 @@ const SiteFooter = () =>
     )
   );
 
-export const ContactApp = tag(() =>
-  subscribe(contactState$, ([state]) => [
-    Header({
-      menuOpen: state.menuOpen,
-      onToggleMenu: () => update({ menuOpen: !state.menuOpen }),
-      onCloseMenu: () => update({ menuOpen: false }),
-    }),
-    main.class`contact-page-main`(
-      section.class`section contact-page-section`(
-        div.class`section-heading`(
-          h1("Let's talk sweets"),
-          p("🧁 Reach out for custom cakes, cupcakes, cookies, party favors, seasonal treats, and availability.")
-        ),
-        div.class`contact-grid`(
-          a.class`contact-card`.href(contact.phoneHref)(span("📞 Call"), h3(contact.phoneDisplay)),
-          a.class`contact-card`.href(contact.textHref)(span("📱 Text"), h3(contact.phoneDisplay)),
-          a.class`contact-card`.href(contact.emailHref)(span("✉️ Email"), h3(contact.email)),
-          div.class`contact-card`(span("📍 Location"), h3(contact.location)),
-          a.class`contact-card`.href(contact.facebookHref).attr("target", "_blank").attr("rel", "noreferrer")(span("💬 Facebook"), h3(contact.facebookName))
-        ),
-        div.class`contact-page-cta`(
-          a.class`primary-button`.href(`${import.meta.env.BASE_URL}custom-order.html`)("Custom Order"),
-          a.class`secondary-button`.href(contact.textHref)("Text Us")
-        ),
-        div.class`business-card-panel`(
-          img
-            .class`business-card-image`
-            .src(assetPath("assets/contact/dds-sweet-shack-business-card.png"))
-            .alt("DD's Sweet Shack business card with contact details")()
-        )
+export const renderContactApp = (state: ContactState = getState()) => [
+  Header({
+    menuOpen: state.menuOpen,
+    onToggleMenu: () => update({ menuOpen: !state.menuOpen }),
+    onCloseMenu: () => update({ menuOpen: false }),
+  }),
+  main.class`contact-page-main`(
+    section.class`section contact-page-section`(
+      div.class`section-heading`(
+        h1("Let's talk sweets"),
+        p("🧁 Reach out for custom cakes, cupcakes, cookies, party favors, seasonal treats, and availability.")
+      ),
+      div.class`contact-grid`(
+        a.class`contact-card`.href(contact.phoneHref)(span("📞 Call"), h3(contact.phoneDisplay)),
+        a.class`contact-card`.href(contact.textHref)(span("📱 Text"), h3(contact.phoneDisplay)),
+        a.class`contact-card`.href(contact.emailHref)(span("✉️ Email"), h3(contact.email)),
+        div.class`contact-card`(span("📍 Location"), h3(contact.location)),
+        a.class`contact-card`.href(contact.facebookHref).attr("target", "_blank").attr("rel", "noreferrer")(span("💬 Facebook"), h3(contact.facebookName))
+      ),
+      div.class`contact-page-cta`(
+        a.class`primary-button`.href(`${import.meta.env.BASE_URL}custom-order.html`)("Custom Order"),
+        a.class`secondary-button`.href(contact.textHref)("Text Us")
+      ),
+      div.class`business-card-panel`(
+        img
+          .class`business-card-image`
+          .src(assetPath("assets/contact/dds-sweet-shack-business-card.png"))
+          .alt("DD's Sweet Shack business card with contact details")()
       )
-    ),
-    SiteFooter(),
-    MobileContactBar(),
-  ])
-);
+    )
+  ),
+  SiteFooter(),
+  MobileContactBar(),
+];
+
+export const ContactApp = tag(() => subscribe(contactState$, ([state]) => renderContactApp(state)));

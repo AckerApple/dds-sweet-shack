@@ -1,5 +1,28 @@
 # Changelog
 
+## v1.6.1 - 2026-06-15
+
+Static HTML SEO output for public TaggedJS pages.
+
+### Added
+
+- Added a production prerender script that uses TaggedJS static HTML output to inject page content into built public HTML files.
+- Added static render exports for the home, contact, custom order, product details, and order details pages while keeping the existing live TaggedJS client behavior.
+
+### Changed
+
+- Updated `npm run build` and `npm run build:gh-pages` to prerender SEO-friendly HTML after Vite builds.
+- Made product and order detail query parsing safe during Node-based prerendering.
+- Guarded TaggedJS input subscriptions so shared components can render both statically and interactively.
+- Normalized prerendered internal links and asset URLs to relative paths for GitHub Pages compatibility.
+- Bumped the website package version from `1.6.0` to `1.6.1`.
+
+### Verified
+
+- Ran `npm run build`.
+- Ran `npm run build:gh-pages`.
+- Confirmed the served preview HTML includes prerendered home and contact page content instead of an empty `#app` root.
+
 ## v1.6.0 - 2026-06-15
 
 Order request modal polish and product catalog follow-up.

@@ -266,6 +266,10 @@ h1 {
   color: #522084;
 }
 
+.section-heading h1 {
+  max-width: none;
+}
+
 .hero-copy,
 .section-heading p,
 .custom-panel p,
@@ -597,10 +601,6 @@ h1 {
   max-width: 52rem;
 }
 
-.order-page-section h1 {
-  max-width: 9ch;
-}
-
 .order-page-card {
   border: 1px solid var(--line);
   border-radius: 8px;
@@ -742,10 +742,6 @@ h1 {
 
 .contact-page-main {
   min-height: 70vh;
-}
-
-.contact-page-section h1 {
-  max-width: 9ch;
 }
 
 .contact-page-cta {
@@ -929,10 +925,6 @@ h1 {
   min-height: 70vh;
 }
 
-.order-details-section h1 {
-  max-width: 10ch;
-}
-
 .order-detail-grid {
   display: grid;
   gap: 0.9rem;
@@ -1022,10 +1014,6 @@ h1 {
   display: grid;
   align-content: center;
   gap: 0.9rem;
-}
-
-.product-detail-copy h1 {
-  max-width: 11ch;
 }
 
 .product-detail-copy > p {

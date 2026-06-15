@@ -123,9 +123,13 @@ type HeroOptions = {
 
 const Hero = tag((input: HeroOptions) => {
   let props = input;
-  Hero.inputs(([next]) => {
-    props = next;
-  });
+  try {
+    Hero.inputs(([next]) => {
+      props = next;
+    });
+  } catch {
+    // Static string rendering does not create a live TaggedJS input context.
+  }
 
   return section.class`hero-section`.id("home")(
     div.class`hero-content`(
@@ -203,52 +207,52 @@ const SiteFooter = () =>
     )
   );
 
-export const HomeApp = tag(() => {
-  return subscribe(appState$, ([state]) => [
-      Header({
-        menuOpen: state.menuOpen,
-        onToggleMenu: () => update({ menuOpen: !state.menuOpen }),
-        onCloseMenu: () => update({ menuOpen: false }),
-        orderQuantity: orderDraftQuantity(state.orderDraft),
+export const renderHomeApp = (state: AppState = getState()) => [
+  Header({
+    menuOpen: state.menuOpen,
+    onToggleMenu: () => update({ menuOpen: !state.menuOpen }),
+    onCloseMenu: () => update({ menuOpen: false }),
+    orderQuantity: orderDraftQuantity(state.orderDraft),
+  }),
+  main(
+    () => Hero({
+      featuredCreation: rotatingHeroCreations[state.heroIndex % rotatingHeroCreations.length],
+      previousCreation: state.previousHeroIndex === null
+        ? null
+        : rotatingHeroCreations[state.previousHeroIndex % rotatingHeroCreations.length],
+    }),
+    () => Gallery({
+      selectedCategory: state.selectedCategory,
+      selectedCakeSubcategory: state.selectedCakeSubcategory,
+      currentPage: state.currentGalleryPage,
+      onSelectCategory: (selectedCategory: CreationCategory | "All") => update({
+        selectedCategory,
+        currentGalleryPage: 1,
       }),
-      main(
-        () => Hero({
-          featuredCreation: rotatingHeroCreations[state.heroIndex % rotatingHeroCreations.length],
-          previousCreation: state.previousHeroIndex === null
-            ? null
-            : rotatingHeroCreations[state.previousHeroIndex % rotatingHeroCreations.length],
-        }),
-        () => Gallery({
-          selectedCategory: state.selectedCategory,
-          selectedCakeSubcategory: state.selectedCakeSubcategory,
-          currentPage: state.currentGalleryPage,
-          onSelectCategory: (selectedCategory: CreationCategory | "All") => update({
-            selectedCategory,
-            currentGalleryPage: 1,
-          }),
-          onSelectCakeSubcategory: (selectedCakeSubcategory: CakeSubcategory) => update({
-            selectedCakeSubcategory,
-            currentGalleryPage: 1,
-          }),
-          onSelectPage: (currentGalleryPage: number) => update({ currentGalleryPage }),
-          onRequest: openRequest,
-        }),
-        CustomOrders(),
-      ),
-      SiteFooter(),
-      MobileContactBar(),
-      () => OrderModal({
-        selectedCreation: state.selectedCreation,
-        draft: state.orderDraft,
-        copied: state.copied,
-        onClose: () => update({ selectedCreation: null, copied: false }),
-        onDraftChange: <K extends keyof OrderDraft>(field: K, value: OrderDraft[K]) => {
-          const orderDraft = { ...getState().orderDraft, [field]: value };
-          saveOrderDraft(orderDraft);
-          update({ orderDraft, copied: false });
-        },
-        onCreateEmail: createEmailRequest,
-        onCopy: copyOrderDetails,
+      onSelectCakeSubcategory: (selectedCakeSubcategory: CakeSubcategory) => update({
+        selectedCakeSubcategory,
+        currentGalleryPage: 1,
       }),
-    ]);
-});
+      onSelectPage: (currentGalleryPage: number) => update({ currentGalleryPage }),
+      onRequest: openRequest,
+    }),
+    CustomOrders(),
+  ),
+  SiteFooter(),
+  MobileContactBar(),
+  () => OrderModal({
+    selectedCreation: state.selectedCreation,
+    draft: state.orderDraft,
+    copied: state.copied,
+    onClose: () => update({ selectedCreation: null, copied: false }),
+    onDraftChange: <K extends keyof OrderDraft>(field: K, value: OrderDraft[K]) => {
+      const orderDraft = { ...getState().orderDraft, [field]: value };
+      saveOrderDraft(orderDraft);
+      update({ orderDraft, copied: false });
+    },
+    onCreateEmail: createEmailRequest,
+    onCopy: copyOrderDetails,
+  }),
+];
+
+export const HomeApp = tag(() => subscribe(appState$, ([state]) => renderHomeApp(state)));

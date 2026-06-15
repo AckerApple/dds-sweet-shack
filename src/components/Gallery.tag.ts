@@ -69,9 +69,13 @@ const visibleCreations = (
 
 export const Gallery = tag((input: GalleryOptions) => {
   let props = input;
-  Gallery.inputs(([next]) => {
-    props = next;
-  });
+  try {
+    Gallery.inputs(([next]) => {
+      props = next;
+    });
+  } catch {
+    // Static string rendering does not create a live TaggedJS input context.
+  }
 
   const filteredCreations = () => visibleCreations(props.selectedCategory, props.selectedCakeSubcategory);
   const pageCount = () => Math.max(1, Math.ceil(filteredCreations().length / pageSize));

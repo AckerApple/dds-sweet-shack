@@ -77,6 +77,7 @@ All remaining work should support that path: strong photos, clear categories, ea
 
 ## Priority: SEO And Browser Assets
 
+- [x] Prerender public TaggedJS pages into static HTML during production builds for SEO-friendly page content.
 - [ ] Add app icons if needed beyond the current emoji favicon.
 - [ ] Add a sitemap if the deployment target benefits from one.
 - [ ] Consider structured local business data after launch basics are complete.

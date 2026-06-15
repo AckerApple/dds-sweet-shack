@@ -15,7 +15,10 @@ type ProductDetailsState = {
   copied: boolean;
 };
 
-const params = new URLSearchParams(window.location.search);
+const getSearchParams = () =>
+  new URLSearchParams(typeof window === "undefined" ? "" : window.location.search);
+
+const params = getSearchParams();
 const requestedCode = params.get("product") || params.get("code") || "";
 const selectedProduct = requestedCode ? productByCode.get(requestedCode) : products[0];
 const selectedCreation = selectedProduct ? productToCreation(selectedProduct) : null;
@@ -132,33 +135,33 @@ const ProductDetails = () => {
   );
 };
 
-export const ProductDetailsApp = tag(() =>
-  subscribe(productDetailsState$, ([state]) => [
-    Header({
-      menuOpen: state.menuOpen,
-      onToggleMenu: () => update({ menuOpen: !state.menuOpen }),
-      onCloseMenu: () => update({ menuOpen: false }),
-      orderQuantity: orderDraftQuantity(state.orderDraft),
-    }),
-    main.class`product-detail-main`(
-      section.class`section product-detail-section`(
-        ProductDetails()
-      )
-    ),
-    SiteFooter(),
-    MobileContactBar(),
-    () => OrderModal({
-      selectedCreation: state.selectedCreation,
-      draft: state.orderDraft,
-      copied: state.copied,
-      onClose: () => update({ selectedCreation: null, copied: false }),
-      onDraftChange: <K extends keyof OrderDraft>(field: K, value: OrderDraft[K]) => {
-        const orderDraft = { ...getState().orderDraft, [field]: value };
-        saveOrderDraft(orderDraft);
-        update({ orderDraft, copied: false });
-      },
-      onCreateEmail: createEmailRequest,
-      onCopy: copyOrderDetails,
-    })
-  ])
-);
+export const renderProductDetailsApp = (state: ProductDetailsState = getState()) => [
+  Header({
+    menuOpen: state.menuOpen,
+    onToggleMenu: () => update({ menuOpen: !state.menuOpen }),
+    onCloseMenu: () => update({ menuOpen: false }),
+    orderQuantity: orderDraftQuantity(state.orderDraft),
+  }),
+  main.class`product-detail-main`(
+    section.class`section product-detail-section`(
+      ProductDetails()
+    )
+  ),
+  SiteFooter(),
+  MobileContactBar(),
+  () => OrderModal({
+    selectedCreation: state.selectedCreation,
+    draft: state.orderDraft,
+    copied: state.copied,
+    onClose: () => update({ selectedCreation: null, copied: false }),
+    onDraftChange: <K extends keyof OrderDraft>(field: K, value: OrderDraft[K]) => {
+      const orderDraft = { ...getState().orderDraft, [field]: value };
+      saveOrderDraft(orderDraft);
+      update({ orderDraft, copied: false });
+    },
+    onCreateEmail: createEmailRequest,
+    onCopy: copyOrderDetails,
+  })
+];
+
+export const ProductDetailsApp = tag(() => subscribe(productDetailsState$, ([state]) => renderProductDetailsApp(state)));

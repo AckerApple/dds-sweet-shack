@@ -1,16 +1,17 @@
 {
   "name": "dds-sweet-shack",
-  "version": "1.6.0",
+  "version": "1.6.1",
   "description": "Lead-generation website for DD's Sweet Shack.",
   "private": true,
   "type": "module",
   "scripts": {
     "dev": "vite --host 0.0.0.0 --port 5173",
-    "build": "tsc --noEmit -p tsconfig.json && vite build",
-    "build:gh-pages": "tsc --noEmit -p tsconfig.json && vite build --outDir ../gh-pages --emptyOutDir false",
+    "build": "tsc --noEmit -p tsconfig.json && vite build && node scripts/prerender-static.mjs dist",
+    "build:gh-pages": "tsc --noEmit -p tsconfig.json && vite build --outDir ../gh-pages --emptyOutDir false && node scripts/prerender-static.mjs ../gh-pages",
     "catalog:audit": "node scripts/audit-product-catalog.mjs",
     "catalog:add-missing": "node scripts/audit-product-catalog.mjs --add-missing",
-    "preview": "vite preview --host 0.0.0.0 --port 4173"
+    "preview": "vite preview --host 0.0.0.0 --port 4173",
+    "deploy": "npm run build && npm run build:gh-pages && cd ../gh-pages && git add . && git commit -m \"save\" && git push"
   },
   "dependencies": {
     "taggedjs": "file:../../../web/taggedjs/main/dist"

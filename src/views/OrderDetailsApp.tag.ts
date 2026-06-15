@@ -26,7 +26,7 @@ const update = (patch: Partial<OrderDetailsState>) => {
 const assetPath = (path: string) => `${import.meta.env.BASE_URL}${path.replace(/^\/+/, "")}`;
 
 const parseOrderItems = (): DecodedOrderItem[] => {
-  const params = new URLSearchParams(window.location.search);
+  const params = new URLSearchParams(typeof window === "undefined" ? "" : window.location.search);
   const items = params.get("items") || "";
 
   return items
@@ -94,32 +94,32 @@ const OrderProductCard = (item: DecodedOrderItem) => {
   );
 };
 
-export const OrderDetailsApp = tag(() =>
-  subscribe(orderDetailsState$, ([state]) => [
-    Header({
-      menuOpen: state.menuOpen,
-      onToggleMenu: () => update({ menuOpen: !state.menuOpen }),
-      onCloseMenu: () => update({ menuOpen: false }),
-    }),
-    main.class`order-details-main`(
-      section.class`section order-details-section`(
-        div.class`section-heading`(
-          span.class`section-kicker`("Order Details"),
-          h1("Requested sweets"),
-          p("Review the product photos, quantities, and product codes included in this order request.")
-        ),
-        decodedItems.length
-          ? div.class`order-detail-grid`(
-              decodedItems.map((item) => OrderProductCard(item))
-            )
-          : div.class`empty-order-details`(
-              h2("No products found"),
-              p("This link does not include product codes. Start from the gallery and choose I Want This to create a product-based order link."),
-              a.class`primary-button`.href(`${import.meta.env.BASE_URL}#creations`)("View Gallery")
-            )
-      )
-    ),
-    SiteFooter(),
-    MobileContactBar(),
-  ])
-);
+export const renderOrderDetailsApp = (state: OrderDetailsState = getState()) => [
+  Header({
+    menuOpen: state.menuOpen,
+    onToggleMenu: () => update({ menuOpen: !state.menuOpen }),
+    onCloseMenu: () => update({ menuOpen: false }),
+  }),
+  main.class`order-details-main`(
+    section.class`section order-details-section`(
+      div.class`section-heading`(
+        span.class`section-kicker`("Order Details"),
+        h1("Requested sweets"),
+        p("Review the product photos, quantities, and product codes included in this order request.")
+      ),
+      decodedItems.length
+        ? div.class`order-detail-grid`(
+            decodedItems.map((item) => OrderProductCard(item))
+          )
+        : div.class`empty-order-details`(
+            h2("No products found"),
+            p("This link does not include product codes. Start from the gallery and choose I Want This to create a product-based order link."),
+            a.class`primary-button`.href(`${import.meta.env.BASE_URL}#creations`)("View Gallery")
+          )
+    )
+  ),
+  SiteFooter(),
+  MobileContactBar(),
+];
+
+export const OrderDetailsApp = tag(() => subscribe(orderDetailsState$, ([state]) => renderOrderDetailsApp(state)));

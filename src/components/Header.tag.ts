@@ -18,9 +18,13 @@ const navItems = [
 
 export const Header = tag((input: HeaderOptions) => {
   let props = input;
-  Header.inputs(([next]) => {
-    props = next;
-  });
+  try {
+    Header.inputs(([next]) => {
+      props = next;
+    });
+  } catch {
+    // Static string rendering does not create a live TaggedJS input context.
+  }
 
   return (
   header.class`site-header`(

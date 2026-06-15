@@ -87,9 +87,13 @@ const assetPath = (path: string) => `${import.meta.env.BASE_URL}${path.replace(/
 
 export const OrderRequestForm = tag((options: OrderRequestFormOptions) => {
   let props = options;
-  OrderRequestForm.inputs(([next]) => {
-    props = next;
-  });
+  try {
+    OrderRequestForm.inputs(([next]) => {
+      props = next;
+    });
+  } catch {
+    // Static string rendering does not create a live TaggedJS input context.
+  }
 
   return (
   form.class`request-form`(
@@ -212,9 +216,13 @@ export const OrderRequestForm = tag((options: OrderRequestFormOptions) => {
 
 export const OrderModal = tag((input: OrderModalOptions) => {
   let props = input;
-  OrderModal.inputs(([next]) => {
-    props = next;
-  });
+  try {
+    OrderModal.inputs(([next]) => {
+      props = next;
+    });
+  } catch {
+    // Static string rendering does not create a live TaggedJS input context.
+  }
 
   return div.class`modal-root`(
     () => {
