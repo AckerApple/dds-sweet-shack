@@ -1,10 +1,10 @@
 import { a, array, button, div, footer, h1, h2, main, p, section, span, subscribe, tag } from "taggedjs";
 import { Header } from "../components/Header.tag.js";
 import { Gallery, type CakeSubcategory } from "../components/Gallery.tag.js";
-import { OrderModal, emptyDraft, type OrderDraft } from "../components/OrderModal.tag.js";
+import { OrderModal, type OrderDraft } from "../components/OrderModal.tag.js";
 import { contact } from "../data/contact.js";
 import { creations, type CreationCategory, type CreationItem } from "../data/creations.js";
-import { addCreationToOrderDraft, saveOrderDraft } from "../order-cart.js";
+import { addCreationToOrderDraft, loadOrderDraft, orderDraftQuantity, saveOrderDraft } from "../order-cart.js";
 import { createMailtoHref, customOrderCreation, orderBody } from "../order-request.js";
 
 type AppState = {
@@ -25,7 +25,7 @@ const initialState: AppState = {
   selectedCakeSubcategory: "All Cakes",
   currentGalleryPage: 1,
   selectedCreation: null,
-  orderDraft: emptyDraft(),
+  orderDraft: loadOrderDraft(),
   copied: false,
   heroIndex: 0,
   previousHeroIndex: null,
@@ -209,6 +209,7 @@ export const HomeApp = tag(() => {
         menuOpen: state.menuOpen,
         onToggleMenu: () => update({ menuOpen: !state.menuOpen }),
         onCloseMenu: () => update({ menuOpen: false }),
+        orderQuantity: orderDraftQuantity(state.orderDraft),
       }),
       main(
         () => Hero({

@@ -17,6 +17,11 @@ const canUseStorage = () =>
 const normalizeItems = (items: OrderItem[]) =>
   items.length ? items : [{ quantity: 1, title: "" }];
 
+export const orderDraftQuantity = (draft: OrderDraft) =>
+  draft.orderItems
+    .filter((item) => item.title || item.productCode)
+    .reduce((total, item) => total + Math.max(0, Number(item.quantity) || 0), 0);
+
 export const loadOrderDraft = (): OrderDraft => {
   if (!canUseStorage()) return emptyStoredDraft();
 

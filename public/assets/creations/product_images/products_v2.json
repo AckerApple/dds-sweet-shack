@@ -239,7 +239,7 @@
   },
   {
     "productCode": "burn-cake-7",
-    "title": "Burn Cake 7",
+    "title": "Burn Cake Design 7",
     "category": "Cakes",
     "description": "A decorated burn-away cake option for birthdays, announcements, and surprise celebrations.",
     "imageName": "burn-cake-7.jpg",
@@ -251,7 +251,7 @@
       "custom cake",
       "birthday cake"
     ],
-    "updatedAt": "2026-06-13T01:07:50.506Z"
+    "updatedAt": "2026-06-12T21:36:59.205Z"
   },
   {
     "productCode": "butterbeer-cookies",
@@ -323,7 +323,7 @@
     "productCode": "chewy-bread",
     "title": "Chewy Brownies",
     "category": "Treats",
-    "description": "Chewy brownie-style dessert bars with nuts for gifting, dessert tables, or custom treat boxes.",
+    "description": "Chewy brownie-style dessert bars for gifting, dessert tables, or custom treat boxes.",
     "imageName": "chewy-bread.jpg",
     "imagePath": "/assets/creations/product_images/chewy-bread.jpg",
     "altText": "Chewy brownie-style dessert bars.",
@@ -333,7 +333,7 @@
       "dessert bars",
       "treat boxes"
     ],
-    "updatedAt": "2026-06-13T01:08:46.027Z"
+    "updatedAt": "2026-06-12T21:36:59.205Z"
   },
   {
     "productCode": "chocolate-bourbon-cupcake",
@@ -355,7 +355,7 @@
     "productCode": "chocolate-covered-oreos",
     "title": "Chocolate Covered Oreos",
     "category": "Party Favors",
-    "description": "Decorated chocolate-covered Oreos finished for party trays, favors, and themed dessert boxes.",
+    "description": "Decorated chocolate-covered sandwich cookies finished for party trays, favors, and themed dessert boxes.",
     "imageName": "chocolate-covered-oreos.jpg",
     "imagePath": "/assets/creations/product_images/chocolate-covered-oreos.jpg",
     "altText": "Decorated chocolate-covered sandwich cookies.",
@@ -365,7 +365,7 @@
       "party favors",
       "decorated cookies"
     ],
-    "updatedAt": "2026-06-13T01:09:30.934Z",
+    "updatedAt": "2026-06-12T21:36:59.205Z",
     "featured": true
   },
   {
@@ -422,7 +422,7 @@
     "productCode": "cornflake-candy",
     "title": "Cornflake Candy",
     "category": "Treats",
-    "description": "Smooth Peanut butter cornflake candy clusters for holiday tins, dessert trays, and sweet snack boxes.",
+    "description": "Crunchy cornflake candy clusters for holiday tins, dessert trays, and sweet snack boxes.",
     "imageName": "cornflake-candy.jpg",
     "imagePath": "/assets/creations/product_images/cornflake-candy.jpg",
     "altText": "Cornflake candy clusters.",
@@ -432,7 +432,7 @@
       "candy",
       "holiday treats"
     ],
-    "updatedAt": "2026-06-13T01:17:56.923Z"
+    "updatedAt": "2026-06-12T21:36:59.205Z"
   },
   {
     "productCode": "cupcakes",
@@ -534,7 +534,7 @@
   },
   {
     "productCode": "jar-cake",
-    "title": "Lemon Curd Jar Cake",
+    "title": "Jar Cake",
     "category": "Treats",
     "description": "Layered cake served in a jar for individual desserts, party favors, and grab-and-go treats.",
     "imageName": "jar-cake.jpg",
@@ -546,7 +546,7 @@
       "individual treats",
       "party favors"
     ],
-    "updatedAt": "2026-06-13T01:25:03.990Z"
+    "updatedAt": "2026-06-12T21:36:59.205Z"
   },
   {
     "productCode": "sugar-cookies",

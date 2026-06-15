@@ -2,7 +2,7 @@ import { a, array, div, footer, h1, h2, main, p, section, span, subscribe, tag }
 import { Header } from "../components/Header.tag.js";
 import { OrderRequestForm, type OrderDraft } from "../components/OrderModal.tag.js";
 import { contact } from "../data/contact.js";
-import { loadOrderDraft, saveOrderDraft } from "../order-cart.js";
+import { loadOrderDraft, orderDraftQuantity, saveOrderDraft } from "../order-cart.js";
 import { createMailtoHref, customOrderCreation, orderBody } from "../order-request.js";
 
 type CustomOrderState = {
@@ -78,11 +78,11 @@ export const CustomOrderApp = tag(() =>
       menuOpen: state.menuOpen,
       onToggleMenu: () => update({ menuOpen: !state.menuOpen }),
       onCloseMenu: () => update({ menuOpen: false }),
+      orderQuantity: orderDraftQuantity(state.orderDraft),
     }),
     main.class`order-page-main`(
       section.class`section order-page-section`(
         div.class`section-heading`(
-          span.class`section-kicker`("Custom Order"),
           h1("Request something sweet"),
           p("🎂 Share the treat type, event date, theme, colors, quantity, and any custom writing. DD's Sweet Shack will contact you to confirm details and pricing.")
         ),

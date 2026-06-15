@@ -1,5 +1,29 @@
 # Changelog
 
+## v1.6.0 - 2026-06-15
+
+Order request modal polish and product catalog follow-up.
+
+### Changed
+
+- Changed order request item rows so product titles read as solid text instead of input-like linked fields.
+- Moved `Item` before quantity in order item rows and removed repeated visible `Item` labels.
+- Changed quantity entry into a compact control with a small floating `Qty` label and right-aligned quantity value.
+- Changed the order item remove button from `x` to a trash can icon.
+- Added spacing before the `When do you need this order by?` field.
+- Hid the redundant `Selected item:` line inside the order request modal.
+- Allowed all three order request action buttons to sit on one row on larger screens.
+- Allowed the three homepage hero contact buttons to sit on one row on larger screens.
+- Added a red quantity badge to the header `Custom Order` link based on the total saved order quantity.
+- Removed the small `Custom Order` kicker badge from the top of the custom order page.
+- Updated the email fallback helper copy to tell visitors to email copied order details to `ddssweetshack@gmail.com`.
+- Reviewed requested product category changes from Danielle's email and confirmed the listed product titles are not yet present in the saved `products.json` catalog.
+- Bumped the website package version from `1.1.0` to `1.6.0`.
+
+### Verified
+
+- Ran `npm run build`.
+
 ## v1.5.0 - 2026-06-12
 
 Gallery filter and cake category follow-up updates.

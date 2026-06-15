@@ -1,10 +1,12 @@
 import { a, button, div, header, img, nav, span, tag } from "taggedjs";
 import { contact } from "../data/contact.js";
+import { loadOrderDraft, orderDraftQuantity } from "../order-cart.js";
 
 type HeaderOptions = {
   menuOpen: boolean;
   onToggleMenu: () => void;
   onCloseMenu: () => void;
+  orderQuantity?: number;
 };
 
 const navItems = [
@@ -38,11 +40,19 @@ export const Header = tag((input: HeaderOptions) => {
           span(),
           span(),
           span()
-        ),
+      ),
       nav.class(() => props.menuOpen ? "site-nav site-nav-open" : "site-nav")(
-        navItems.map((item) =>
-          a.class`site-nav-link`.href(item.href).onClick(() => props.onCloseMenu())(item.label)
-        ),
+        () => {
+          const quantity = props.orderQuantity ?? orderDraftQuantity(loadOrderDraft());
+          return navItems.map((item) =>
+            a.class`site-nav-link`.href(item.href).onClick(() => props.onCloseMenu())(
+              span(item.label),
+              item.label === "Custom Order" && quantity > 0
+                ? span.class`order-nav-badge`.attr("aria-label", `${quantity} items in order`)(String(quantity))
+                : null
+            )
+          );
+        },
         a.class`site-nav-cta`.href(contact.textHref).onClick(() => props.onCloseMenu())("Text Us")
       )
     )

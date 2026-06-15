@@ -38,6 +38,7 @@ All remaining work should support that path: strong photos, clear categories, ea
 - [ ] Finalize product catalog entries in `public/assets/creations/product_images/products.json`.
   - Confirm titles.
   - Confirm categories.
+  - Add or save Danielle's requested items before category assignment: Pumpkin Roll, Peanut Butter Marshmallow Bars, Kentucky Butter Cake with Bourbon Drizzle, Fudge, Oreo Cupcakes, Pecan Pie Cheesecake, Rustic Smash Cake, Rustic Wedding Cake, Mickey Mouse Themed Smash Cake, Pull Apart Cupcakes, and Saltine Toffee Candy.
   - Confirm descriptions.
   - Confirm alt text.
   - Confirm suggested units.
@@ -57,8 +58,8 @@ All remaining work should support that path: strong photos, clear categories, ea
 - [ ] Test every floating gallery `I Want This` button.
 - [ ] Test the hero and product detail page `I Want This` buttons.
 - [ ] Test every product title link to `/product-details.html`.
-- [ ] Test the quick request modal on desktop and mobile.
-- [ ] Verify order modal item rows show product thumbnails and title links without shopper-facing product codes.
+- [x] Test the quick request modal layout on desktop and mobile during order-form polish.
+- [x] Verify order modal item rows show product thumbnails and solid product-title text without shopper-facing product codes.
 - [ ] Test the dedicated custom order page at `/custom-order.html`.
 - [ ] Verify generated mailto subject and email body with the business owner.
 - [ ] Test `Create Email Request` on iPhone, Android, desktop mail apps, and Facebook in-app browser where possible.

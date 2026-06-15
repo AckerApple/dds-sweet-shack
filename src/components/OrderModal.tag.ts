@@ -1,5 +1,4 @@
 import {
-  a,
   button,
   div,
   form,
@@ -86,9 +85,6 @@ const removeOrderItem = (items: OrderItem[], index: number) => {
 
 const assetPath = (path: string) => `${import.meta.env.BASE_URL}${path.replace(/^\/+/, "")}`;
 
-const productDetailsHref = (productCode: string) =>
-  `${import.meta.env.BASE_URL}product-details.html?product=${encodeURIComponent(productCode)}`;
-
 export const OrderRequestForm = tag((options: OrderRequestFormOptions) => {
   let props = options;
   OrderRequestForm.inputs(([next]) => {
@@ -127,8 +123,30 @@ export const OrderRequestForm = tag((options: OrderRequestFormOptions) => {
               ? img.src(assetPath(product.imagePath)).alt(product.altText || product.title)()
               : span("Custom")
           ),
+          div.class`order-item-title`(
+            product
+              ? span.class`order-item-product-text`(product.title)
+              : input
+                .type("text")
+                .value(() => item.title)
+                .attr("aria-label", "Item")
+                .attr("required", "true")
+                .attr("placeholder", "Describe custom item")
+                .onInput((event) =>
+                  props.onDraftChange(
+                    "orderItems",
+                    updateOrderItem(props.draft.orderItems, index, {
+                      title: event.target.value,
+                    }),
+                  )
+                )(),
+            item.productCode
+              ? input.type("hidden").value(() => item.productCode || "")()
+              : null
+          ),
           label.class`form-field order-item-qty`(
-            span("Qty"),
+            span.class`sr-only`("Quantity"),
+            span.class`quantity-prefix`.attr("aria-hidden", "true")("Qty"),
             input
               .type("number")
               .min("1")
@@ -144,41 +162,16 @@ export const OrderRequestForm = tag((options: OrderRequestFormOptions) => {
                 )
               )()
           ),
-          div.class`order-item-title`(
-            span.class`order-item-label`("Item"),
-            product
-              ? a
-                .class`order-item-product-link`
-                .href(productDetailsHref(product.productCode))
-                .attr("target", "_blank")
-                .attr("rel", "noreferrer")(product.title)
-              : input
-                .type("text")
-                .value(() => item.title)
-                .attr("required", "true")
-                .attr("placeholder", "Describe custom item")
-                .onInput((event) =>
-                  props.onDraftChange(
-                    "orderItems",
-                    updateOrderItem(props.draft.orderItems, index, {
-                      title: event.target.value,
-                    }),
-                  )
-                )(),
-            item.productCode
-              ? input.type("hidden").value(() => item.productCode || "")()
-              : null
-          ),
           button
             .class`icon-button order-item-remove`
             .type("button")
             .attr("aria-label", "Remove order item")
-            .onClick(() => props.onDraftChange("orderItems", removeOrderItem(props.draft.orderItems, index)))("x")
+            .onClick(() => props.onDraftChange("orderItems", removeOrderItem(props.draft.orderItems, index)))("🗑️")
         );
         }
       )
     ),
-    div.class`form-grid`(
+    div.class`form-grid order-date-field`(
       field(
         "🗓️ When do you need this order by?",
         input
@@ -212,7 +205,7 @@ export const OrderRequestForm = tag((options: OrderRequestFormOptions) => {
         ? button.class`secondary-button`.type("button").onClick(() => props.onContinue?.())("Continue Browsing")
         : null
     ),
-    p.class`mailto-help`(`Email opens to ${contact.email}. If it does not open, copy the order details instead.`)
+    p.class`mailto-help`(`Email opens to ${contact.email}. If it does not open, copy the order details instead and email them to ${contact.email}.`)
   )
   );
 });
@@ -250,6 +243,7 @@ export const OrderModal = tag((input: OrderModalOptions) => {
           onCreateEmail: props.onCreateEmail,
           onCopy: props.onCopy,
           onContinue: props.onClose,
+          showSelectedItem: false,
         })
       )
     );

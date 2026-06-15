@@ -59,6 +59,18 @@ img {
   max-width: 100%;
 }
 
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
 .site-header {
   position: sticky;
   top: 0;
@@ -136,6 +148,9 @@ img {
 
 .site-nav-link,
 .site-nav-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.42rem;
   padding: 0.85rem 0.9rem;
   border-radius: 8px;
   font-weight: 800;
@@ -152,6 +167,20 @@ img {
   color: #ffffff;
   background: #e62d79;
   box-shadow: none;
+}
+
+.order-nav-badge {
+  display: inline-grid;
+  min-width: 1.35rem;
+  height: 1.35rem;
+  place-items: center;
+  border-radius: 999px;
+  color: #ffffff;
+  background: #d9164f;
+  font-size: 0.74rem;
+  font-weight: 900;
+  line-height: 1;
+  padding-inline: 0.36rem;
 }
 
 .primary-button,
@@ -618,9 +647,9 @@ h1 {
 
 .order-item-row {
   display: grid;
-  grid-template-columns: 3.25rem minmax(4.75rem, 0.26fr) minmax(0, 1fr) 2.5rem;
+  grid-template-columns: 3.25rem minmax(0, 1fr) 5.35rem 2.5rem;
   gap: 0.55rem;
-  align-items: end;
+  align-items: center;
 }
 
 .order-item-thumb {
@@ -643,13 +672,9 @@ h1 {
   object-fit: cover;
 }
 
-.order-item-label {
-  font-weight: 850;
-}
-
 .order-item-title {
   display: grid;
-  gap: 0.35rem;
+  gap: 0.25rem;
 }
 
 .order-item-title input {
@@ -661,22 +686,53 @@ h1 {
   padding: 0.85rem;
 }
 
-.order-item-product-link {
-  min-height: 3.2rem;
+.order-item-product-text {
   display: flex;
   align-items: center;
-  border: 1px solid var(--line);
-  border-radius: 8px;
-  background: #fffafd;
-  color: #522084;
+  color: var(--ink);
   font-weight: 900;
   line-height: 1.25;
   overflow-wrap: anywhere;
-  padding: 0.78rem 0.85rem;
+  padding-block: 0.35rem;
+}
+
+.form-field.order-item-qty {
+  position: relative;
+  display: block;
+  min-height: 2.75rem;
+  width: 100%;
+  padding: 0.95rem 0.35rem 0.24rem;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: #fffafd;
+}
+
+.form-field.order-item-qty input {
+  width: 100%;
+  min-width: 0;
+  border: 0;
+  background: transparent;
+  padding: 0;
+  text-align: right;
+  font-weight: 900;
+}
+
+.quantity-prefix {
+  position: absolute;
+  top: 0.28rem;
+  left: 0.45rem;
+  color: var(--purple);
+  font-size: 0.66rem;
+  font-weight: 900;
+  line-height: 1;
 }
 
 .order-item-remove {
   margin-bottom: 0;
+}
+
+.order-date-field {
+  margin-top: 0.55rem;
 }
 
 .contact-grid {
@@ -1195,12 +1251,16 @@ h1 {
   }
 
   .hero-actions {
-    grid-template-columns: repeat(2, max-content);
+    grid-template-columns: repeat(3, max-content);
+    max-width: none;
   }
 
-  .custom-actions,
-  .modal-actions {
+  .custom-actions {
     grid-template-columns: repeat(2, minmax(0, max-content));
+  }
+
+  .modal-actions {
+    grid-template-columns: repeat(3, minmax(0, max-content));
   }
 
   .contact-grid {
@@ -1323,7 +1383,24 @@ h1 {
   }
 
   .order-item-row {
-    grid-template-columns: minmax(4.75rem, 0.32fr) minmax(0, 1fr) 2.5rem;
+    grid-template-columns: 3.6rem minmax(0, 1fr) 4.85rem 2.5rem;
+    gap: 0.45rem;
+  }
+
+  .order-item-thumb {
+    width: 3.6rem;
+    height: 3.6rem;
+    font-size: 0.66rem;
+  }
+
+  .order-item-title input,
+  .order-item-qty input {
+    padding-inline: 0.65rem;
+  }
+
+  .order-item-product-text {
+    min-height: 3.2rem;
+    padding-block: 0.7rem;
   }
 
   .order-item-code {

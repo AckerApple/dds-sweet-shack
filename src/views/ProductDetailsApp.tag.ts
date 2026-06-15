@@ -5,7 +5,7 @@ import { ProductRequestButton } from "../components/ProductActions.tag.js";
 import { contact } from "../data/contact.js";
 import { productByCode, productToCreation, products } from "../data/products.js";
 import type { CreationItem } from "../data/creations.js";
-import { addCreationToOrderDraft, saveOrderDraft } from "../order-cart.js";
+import { addCreationToOrderDraft, loadOrderDraft, orderDraftQuantity, saveOrderDraft } from "../order-cart.js";
 import { createMailtoHref, orderBody } from "../order-request.js";
 
 type ProductDetailsState = {
@@ -23,13 +23,7 @@ const selectedCreation = selectedProduct ? productToCreation(selectedProduct) : 
 const productDetailsState$ = array<ProductDetailsState>([{
   menuOpen: false,
   selectedCreation: null,
-  orderDraft: {
-    customerName: "",
-    orderItems: [{ quantity: 1, title: "" }],
-    neededBy: "",
-    bestNumber: "",
-    additionalDetails: "",
-  },
+  orderDraft: loadOrderDraft(),
   copied: false,
 }]);
 
@@ -144,6 +138,7 @@ export const ProductDetailsApp = tag(() =>
       menuOpen: state.menuOpen,
       onToggleMenu: () => update({ menuOpen: !state.menuOpen }),
       onCloseMenu: () => update({ menuOpen: false }),
+      orderQuantity: orderDraftQuantity(state.orderDraft),
     }),
     main.class`product-detail-main`(
       section.class`section product-detail-section`(
