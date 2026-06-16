@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /admin-products.html
+Disallow: /order-details.html
+
+Sitemap: https://ddssweetshack.com/sitemap.xml
